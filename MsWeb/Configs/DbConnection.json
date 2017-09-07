@@ -1,0 +1,7 @@
+[
+  {
+    "Name": "DMSP",
+    "ConnectionString": "Data Source=.;Initial Catalog=MyWeb20170822;User ID=sa;Password=111111",
+    "ProviderName": "System.Data.SqlClient"
+  }
+]
