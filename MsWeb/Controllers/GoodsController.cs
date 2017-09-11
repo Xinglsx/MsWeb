@@ -11,6 +11,7 @@ namespace MsWeb.Controllers
         // GET: Goods
         public ActionResult Index()
         {
+            ViewBag.Title = "优惠券";
             return View();
         }
     }

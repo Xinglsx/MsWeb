@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWeb.Domains\MsWeb.Domains.csproj">
+    <ProjectReference Include="..\MsWeb.Domains\MsWeb.Domains.csproj">
       <Project>{a53adfc8-6456-4dcc-89a2-33bbb5fd5e70}</Project>
       <Name>MsWeb.Domains</Name>
     </ProjectReference>

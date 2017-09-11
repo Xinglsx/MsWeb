@@ -28,7 +28,7 @@ namespace MsWeb.Controllers
 
         public ActionResult GoodsIndex()
         {
-            ViewBag.Title = "关于闪荐";
+            ViewBag.Title = "闪荐";
             return View("~/Views/Home/GoodsIndex.cshtml");
         }
 
@@ -40,8 +40,20 @@ namespace MsWeb.Controllers
 
         public ActionResult Recruit()
         {
-            ViewBag.Title = "关于闪荐";
+            ViewBag.Title = "招募令";
             return View("~/Views/Home/Recruit.cshtml");
+        }
+
+        public ActionResult SjDownload()
+        {
+            ViewBag.Title = "下载闪荐";
+            return View("~/Views/Home/SjDownload.cshtml");
+        }
+
+        public ActionResult SoftDownload()
+        {
+            ViewBag.Title = "下载闪荐";
+            return View("~/Views/Home/SoftDownload.cshtml");
         }
 
     }

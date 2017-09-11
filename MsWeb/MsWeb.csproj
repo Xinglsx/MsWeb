@@ -277,6 +277,8 @@
     <Content Include="Views\Home\Aboutus.cshtml" />
     <Content Include="Views\Goods\Index.cshtml" />
     <Content Include="Views\Home\GoodsIndex.cshtml" />
+    <Content Include="Views\Home\SjDownload.cshtml" />
+    <Content Include="Views\Home\SoftDownload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.DataObjects\MsWeb.DataObjects.csproj">
