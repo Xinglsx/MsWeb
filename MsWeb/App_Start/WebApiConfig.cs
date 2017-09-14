@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
 using Winning.Framework.DMSP.Web.Filters;
+using System.Web.Http.Cors;
+using System.Web.Mvc;
 
 namespace MsWeb
 {
@@ -15,6 +17,7 @@ namespace MsWeb
         public static void Register(HttpConfiguration config)
         {
             config.Filters.Add(new ApiExceptionFilter());
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
@@ -22,7 +25,7 @@ namespace MsWeb
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
