@@ -15,11 +15,6 @@ namespace MsWeb.Controllers
         // GET: Goods
         public ActionResult Index()
         {
-            ViewBag.Title = "折扣品";
-
-            //JSON转
-            //response.Body
-
             return View();
         }
 
@@ -32,7 +27,6 @@ namespace MsWeb.Controllers
             }
             string url = "http://gw.api.taobao.com/router/rest";
             string appkey = "24620377";
-            
             string format = "json";
             ITopClient client = new DefaultTopClient(url, appkey, appsecret, format);
             TbkItemGetRequest req = new TbkItemGetRequest();
