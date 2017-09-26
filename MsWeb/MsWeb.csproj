@@ -227,8 +227,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
+    <Compile Include="Api\Controllers\RecommandGoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -246,7 +247,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ScriptPatchs\Install\0001_AdminUser.sql" />
+    <Content Include="App_Data\ScriptPatchs\Install\Goods\0001_AdminUser.sql" />
+    <Content Include="Configs\CacheConfig.json" />
+    <Content Include="Configs\DbConnection.json" />
+    <Content Include="Configs\LoggerConfig.json" />
+    <Content Include="Configs\PatchConfig.json" />
+    <Content Include="Configs\PluginConfig.json" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -316,6 +322,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\ScriptPatchs\V201709\Goods\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

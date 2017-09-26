@@ -14,13 +14,14 @@ namespace MsWeb.Controllers
             return View();
         }
 
+        public ActionResult FindCoupon()
+        {
+            return View("~/Views/Coupon/FindCoupon.cshtml");
+        }
+
         [HttpGet]
         public async Task<object> GetCoupons(string q, long? pageNo, long? pageSize)
         {
-            //if (string.IsNullOrEmpty(q))
-            //{
-            //    q = "母婴";
-            //}
             string url = "http://gw.api.taobao.com/router/rest";
             string appkey = "24620377";
             string format = "json";

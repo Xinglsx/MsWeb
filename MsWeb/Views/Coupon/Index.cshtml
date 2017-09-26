@@ -8,16 +8,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>粉丝福利券</title>
-    <style>
-        body{ text-align:center} 
-        #div_center{margin:0 auto} 
-    </style>
 
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #div_center {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <div>
-        <div id="div_center">
-            <p>报错了？</p>
+        <div>
+            <p><h4>想自己去找券？<a href="/Coupon/FindCoupon">点击这里</a></h4></p>
         </div>
         <div class="main">
             @*<div class="col-md-3">
@@ -32,16 +37,16 @@
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script>
-        $.getJSON("/Coupon/GetCouponsIndex").success(function (datas) {
+        $.getJSON("/api/RecommandGoods/GetRecommandGoodsList?curPage=0&pageSize=10&type=2&filter=").success(function (data) {
                 $(".main").html("")
-                $.each(datas.data, function (i, item) {
+                $.each(data.data, function (i, item) {
                     $(".main").append("<div class='col-md-3'>"
                         + "<p><a href='" + item.link + "'><img src='" + item.image + "' width='280' height='200'/></a></p>"
                     + "<p width='280'>" + item.description + "</p>"
                     + "<p>现价：<font color='red'>" + item.price + "</font>&nbsp;&nbsp;<s>原价：" + item.oldprice + "</s></p>"
                     + "<p>推荐时间:<font color='blue'>" + item.recommendtime + "</font></p>"
                     + "<p><a class='btn btn-default' href='" + item.link + "'>点击领取优惠券</a></p>"
-                    + "</div>");
+                    + "<br></div>");
                 });
             })
     </script>

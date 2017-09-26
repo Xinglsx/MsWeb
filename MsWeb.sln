@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb", "MsWeb\MsWeb.csproj", "{E2B1752E-4248-4299-937C-7D7F6C528063}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AFAF99F-8FC5-4B1C-976A-5C0A399ECD4D} = {7AFAF99F-8FC5-4B1C-976A-5C0A399ECD4D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.DataObjects", "MsWeb.DataObjects\MsWeb.DataObjects.csproj", "{86D4DB7B-A2B9-454C-965B-8B92716F4DAB}"
 EndProject

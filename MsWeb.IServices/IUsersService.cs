@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using MsWeb.DataObjects;
 
 using Winning.Framework.DMSP.Services;
+using Winning.Framework.DMSP.Services.ServiceContract;
 
 namespace MsWeb.IServices
 {
-    public interface IUserService : IBaseService<UserModel>, IServiceContract
+    public interface IUsersService : IBaseServiceKeyedString<UsersModel>, IServiceContract
     {
-        Task<UserModel> Login(string loginName, string password);
+        Task<UsersModel> Login(string loginName, string password);
     }
 }

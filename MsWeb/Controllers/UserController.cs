@@ -8,7 +8,7 @@ using Winning.Framework.DMSP.Web.WebApi;
 
 namespace MsWeb.Controllers
 {
-    public class UserController : WebApiController<UserModel, IUserService>
+    public class UserController : WebApiController<UsersModel, IUsersService>
     {
         [HttpPost]
         public async Task<object> Login(LoginModel loginModel)
@@ -24,14 +24,14 @@ namespace MsWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Add(UserModel user)
+        public async Task<bool> Add(UsersModel user)
         {
             user.SetNewID();
             return await Service.Add(user);
         }
 
         [HttpPost]
-        public async Task<bool> Update(UserModel user)
+        public async Task<bool> Update(UsersModel user)
         {
             return await Service.Update(user);
         }
