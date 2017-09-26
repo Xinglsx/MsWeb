@@ -73,6 +73,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -226,6 +227,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
@@ -286,6 +288,8 @@
     <Content Include="Views\Home\SjDownload.cshtml" />
     <Content Include="Views\Home\SoftDownload.cshtml" />
     <Content Include="Views\Coupon\Index.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
+    <Content Include="Views\Coupon\FindCoupon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.DataObjects\MsWeb.DataObjects.csproj">
@@ -313,7 +317,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
