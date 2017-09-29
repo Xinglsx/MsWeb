@@ -14,6 +14,7 @@ namespace MsWeb.Controllers
     {
 
         private string appkey = "24621990";
+        public string appsecret = "67324d6b627d04bc32b68a25eabcd3d5";
         /// <summary>
         /// 获取淘宝客粉丝优惠券列表
         /// </summary>
