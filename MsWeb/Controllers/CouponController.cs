@@ -24,6 +24,7 @@ namespace MsWeb.Controllers
         {
             string url = "http://gw.api.taobao.com/router/rest";
             string appkey = "24620377";
+            string appsecret = "f1169988a1703d26729664cf86b4b2ea";
             string format = "json";
             ITopClient client = new DefaultTopClient(url, appkey, appsecret,format);
             TbkDgItemCouponGetRequest req = new TbkDgItemCouponGetRequest();

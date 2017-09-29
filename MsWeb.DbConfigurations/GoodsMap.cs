@@ -34,6 +34,9 @@ namespace MsWeb.DbConfigurations
             this.Property(e => e.recommender)
                 .HasMaxLength(36);
 
+            this.Property(e => e.recommendtime)
+                .HasColumnType("datetime");
+
             this.Property(e => e.recommendname)
                 .HasMaxLength(36);
 

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="TinyMapper">
       <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\TinyMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Winning.Framework.DMSP.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Winning.Framework.DMSP.Common.dll</HintPath>
     </Reference>
     <Reference Include="Winning.Framework.DMSP.Core">
       <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Core.dll</HintPath>
@@ -56,12 +61,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvertisementService.cs" />
+    <Compile Include="CommonService.cs" />
     <Compile Include="GoodsService.cs" />
     <Compile Include="Mapper\DtoMapper.cs" />
+    <Compile Include="QuestionsService.cs" />
     <Compile Include="UsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MsWeb.Core\MsWeb.Core.csproj">
+      <Project>{0443c04b-aeb4-4565-a125-597759c71ddf}</Project>
+      <Name>MsWeb.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MsWeb.DataObjects\MsWeb.DataObjects.csproj">
       <Project>{86d4db7b-a2b9-454c-965b-8b92716f4dab}</Project>
       <Name>MsWeb.DataObjects</Name>

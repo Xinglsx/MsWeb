@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Top.Api;
 using Top.Api.Request;
 using Top.Api.Response;
+using Winning.Framework.DMSP.Core.Paging;
 using Winning.Framework.DMSP.Web.WebApi;
 
 namespace MsWeb.Api.Controllers
@@ -16,7 +17,7 @@ namespace MsWeb.Api.Controllers
     public class RecommandGoodsController : WebApiController<GoodsModel, IGoodsService>
     {
         [HttpGet]
-        public async Task<object> GetGoods(string q , long? pageNo,long? pageSize)
+        public String GetGoods(string q , long? pageNo,long? pageSize)
         {
             if (string.IsNullOrEmpty(q))
             {
@@ -44,9 +45,30 @@ namespace MsWeb.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ReturnResult<List<GoodsModel>>> GetRecommandGoodsList(int curPage, int pageSize, int type, string filter)
+        public async Task<ReturnResult<PagedData<GoodsModel>>> GetRecommandGoodsList(int curPage, int pageSize, int type, string filter)
         {
             return await Service.GetRecommandGoodsList(curPage, pageSize, type, filter);
         }
+        [HttpGet]
+        public Task<ReturnResult<bool>> ClickCounIncrement(string id)
+        {
+            return Service.ClickCounIncrement(id);
+        }
+        [HttpPost]
+        public async Task<ReturnResult<bool>> SaveGoodsInfo(GoodsApiModel goodsInfo)
+        {
+            return await Service.SaveGoodsInfo(goodsInfo.goodsInfo);
+        }
+        [HttpPost]
+        public async Task<ReturnResult<bool>> AuditGoodsInfo(GoodsApiModel goodsInfo)
+        {
+            return await Service.AuditGoodsInfo(goodsInfo.goodsInfo);
+        }
+
+    }
+
+    public class GoodsApiModel
+    {
+        public GoodsModel goodsInfo { get; set; }
     }
 }

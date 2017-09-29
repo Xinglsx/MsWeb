@@ -10,6 +10,7 @@ using Winning.Framework.DMSP.Core.AspectX;
 using MsWeb.Domains;
 using Winning.Framework.DMSP.Services;
 using Winning.Framework.DMSP.EFRepository;
+using MsWeb.Core.Utils;
 
 namespace MsWeb.Services
 {
@@ -19,32 +20,15 @@ namespace MsWeb.Services
         {
         }
 
-        public Task<bool> Add(GoodsModel model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<GoodsModel>> Get(Expression<Func<GoodsModel, bool>> filter = null, Expression<Func<GoodsModel, object>> sortField = null, SortOrder sortOrder = SortOrder.Unspecified)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<GoodsModel>> GetAll(Expression<Func<GoodsModel, object>> sortField = null, SortOrder sortOrder = SortOrder.Unspecified)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<GoodsModel> GetByID(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<ReturnResult<List<GoodsModel>>> GetRecommandGoodsList(int curPage, int pageSize, int type, string filter)
+        /// <summary>
+        /// 分页加载商品信息列表
+        /// </summary>
+        /// <param name="curPage">当前页码</param>
+        /// <param name="pageSize">每页条数</param>
+        /// <param name="type">商品类型</param>
+        /// <param name="filter">查询条件</param>
+        /// <returns></returns>
+        public async Task<ReturnResult<PagedData<GoodsModel>>> GetRecommandGoodsList(int curPage, int pageSize, int type, string filter)
         {
             List<int> states = new List<int>();
             if (type == 10)
@@ -73,14 +57,17 @@ namespace MsWeb.Services
 
             if (pageSize <= 0) pageSize = 10;//默认取10条
 
-            return await Aspect.Task<ReturnResult<List<GoodsModel>>>(async () =>
+            return await Aspect.Task<ReturnResult<PagedData<GoodsModel>>>(async () =>
             {
-                ReturnResult<List<GoodsModel>> result = new ReturnResult<List<GoodsModel>>();
+                ReturnResult<PagedData<GoodsModel>> result = new ReturnResult<PagedData<GoodsModel>>();
 
-                List<GoodsModel> goods = await this.FindResultAsync<GoodsModel, Goods>(repository, x =>
-                    states.Contains(x.state ?? 0) && (filter == string.Empty || x.description.Contains(filter)), order:SortOrder.Descending);
 
-                if (goods == null || goods.Count == 0)
+                Expression<Func<Goods, bool>> exp = x => states.Contains(x.state ?? 0) && (filter == string.Empty || x.description.Contains(filter));
+                
+                var goods = await this.FindResultWithPagingAsync<GoodsModel, Goods>(repository, curPage, pageSize, exp,
+                    x => new { x.recommendtime }, SortOrder.Descending);
+
+                if (goods == null || goods.DataList == null || goods.DataList.Count == 0)
                 {
                     result.code = -105;
                     result.message = "已加载完。";
@@ -90,24 +77,99 @@ namespace MsWeb.Services
                 result.data = goods;
                 return result;
             })
-                .WithLog("获取商品列表")
-                .Execute();
+            .WithLog("获取商品列表")
+            .Execute();
 
         }
 
-        public Task<GoodsModel> GetOne(Expression<Func<GoodsModel, bool>> filter = null)
+
+        public async Task<ReturnResult<bool>> ClickCounIncrement(string id)
         {
-            throw new NotImplementedException();
+            return await Aspect.Task<ReturnResult<bool>>(async () =>
+            {
+                ReturnResult<bool> result = new ReturnResult<bool>();
+
+                result.data= await this.Update(id, x => x.clickcount++);
+                result.code = 1;
+                return result;
+            })
+            .WithLog("商品点击数自增")
+            .Execute();
         }
 
-        public Task<PagedData<GoodsModel>> GetPage(int pageIndex, int pageSize, Expression<Func<GoodsModel, bool>> filter = null, Dictionary<Expression<Func<GoodsModel, object>>, SortOrder> sorts = null)
+        public async Task<ReturnResult<bool>> SaveGoodsInfo(GoodsModel goodsInfo)
         {
-            throw new NotImplementedException();
+            return await Aspect.Task(async () =>
+            {
+                ReturnResult<bool> result = new ReturnResult<bool>();
+                //新增
+                if (string.IsNullOrEmpty(goodsInfo.ID))
+                {
+                    goodsInfo.ID = Guid.NewGuid().ToString();
+                    goodsInfo.image = ImageUtil.StrToUri(goodsInfo.image, goodsInfo.ID + ".jpg");
+                    goodsInfo.buyimage = ImageUtil.StrToUri(goodsInfo.buyimage, goodsInfo.ID + "_buy.jpg");
+                    goodsInfo.recommendtime = DateTime.Now;
+                    result.data = await this.Add(goodsInfo);
+                    if (result.data)
+                    {
+                        result.code = 1;
+                    }
+                    else
+                    {
+                        result.code = -106;
+                        result.message = "商品信息新增失败！";
+                    }
+                    return result;
+                }
+                //修改
+                else
+                {
+                    //修改的商品，可能已经是地址模式化
+                    if (goodsInfo.image != null && !goodsInfo.image.Contains(".jpg"))
+                    {
+                        goodsInfo.image = ImageUtil.StrToUri(goodsInfo.image, goodsInfo.ID + ".jpg");
+                    }
+                    if (goodsInfo.buyimage != null && !goodsInfo.buyimage.Contains("_buy.jpg"))
+                    {
+                        goodsInfo.buyimage = ImageUtil.StrToUri(goodsInfo.buyimage, goodsInfo.ID + "_buy.jpg");
+                    }
+                    result.data = await this.Update(goodsInfo);
+                    if (result.data)
+                    {
+                        result.code = 1;
+                    }
+                    else
+                    {
+                        result.code = -103;
+                        result.message = "商品信息更新失败！";
+                    }
+                    return result;
+                }
+            })
+           .WithLog("保存商品信息.")
+           .Execute();
         }
 
-        public Task<bool> Update(GoodsModel model)
+        public async Task<ReturnResult<bool>> AuditGoodsInfo(GoodsModel goodsInfo)
         {
-            throw new NotImplementedException();
+            return await Aspect.Task(async () =>
+            {
+                ReturnResult<bool> result = new ReturnResult<bool>();
+                goodsInfo.audittime = DateTime.Now;
+                result.data = await this.Update(goodsInfo);
+                if (result.data)
+                {
+                    result.code = 1;
+                }
+                else
+                {
+                    result.code = -103;
+                    result.message = "商品审核失败！";
+                }
+                return result;
+            })
+           .WithLog("审核商品信息.")
+           .Execute();
         }
     }
 }
