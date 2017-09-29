@@ -330,11 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\ScriptPatchs\V201709\Goods\" />
-    <Folder Include="Views\Advertisement\" />
-    <Folder Include="Views\Question\" />
-    <Folder Include="Views\Tbk\" />
-    <Folder Include="Views\Users\" />
-    <Folder Include="Views\Version\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

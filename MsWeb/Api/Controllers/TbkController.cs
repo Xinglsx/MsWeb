@@ -149,5 +149,21 @@ namespace MsWeb.Controllers
 
             return response.Body;
         }
+
+        [HttpGet]
+        public async Task<object> GetCoupons(string q, long? pageNo, long? pageSize)
+        {
+            string url = "http://gw.api.taobao.com/router/rest";
+            string format = "json";
+            ITopClient client = new DefaultTopClient(url, appkey, appsecret, format);
+            TbkDgItemCouponGetRequest req = new TbkDgItemCouponGetRequest();
+            req.AdzoneId = 132554802L;
+            req.Q = q;
+            req.PageNo = pageNo ?? 1;
+            req.PageSize = pageSize ?? 24;
+            TbkDgItemCouponGetResponse response = client.Execute(req);
+
+            return response.Body;
+        }
     }
 }
