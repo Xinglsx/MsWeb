@@ -46,7 +46,7 @@
     <script>
         $(".btnSearch").on('click', function () {
             var input = $('.inputSearch').val();
-            $.getJSON("/Goods/GetGoods?q=" + input ).success(function (data) {
+            $.getJSON("/api/Tbk/GetGoods?q=" + input).success(function (data) {
                 $(".main").html("")
                 $.each(data.tbk_item_get_response.results.n_tbk_item, function (i, item) {
                     $(".main").append("<div class='col-md-3'>"
@@ -60,7 +60,7 @@
             })
         })
         $(document).ready(
-            $.getJSON("/Goods/GetGoods").success(function (data) {
+            $.getJSON("/api/Tbk/GetGoods").success(function (data) {
                 $(".main").html("")
                 $.each(data.tbk_item_get_response.results.n_tbk_item, function (i, item) {
                     $("main").append("<div class='col-md-3'>"

@@ -47,7 +47,7 @@
     <script>
         $(".btnSearch").on('click', function () {
             var input = $('.inputSearch').val();
-            $.getJSON("/Coupon/GetCoupons?q="+input).success(function (data) {
+            $.getJSON("/api/Tbk/GetCoupons?q="+input).success(function (data) {
                 $(".main").html("")
                 $.each(data.tbk_dg_item_coupon_get_response.results.tbk_coupon, function (i, item) {
                     $(".main").append("<div class='col-md-3'>"
@@ -61,7 +61,7 @@
             })
         })
         @*首次进入加载默认*@
-        $.getJSON("/Coupon/GetCoupons").success(function (data) {
+        $.getJSON("/api/Tbk/GetCoupons").success(function (data) {
             $(".main").html("")
             $.each(data.tbk_dg_item_coupon_get_response.results.tbk_coupon, function (i, item) {
                 $(".main").append("<div class='col-md-3'>"
