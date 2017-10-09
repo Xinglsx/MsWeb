@@ -36,6 +36,14 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,13 +52,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Winning.Framework.DMSP.Core">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.DataAccess.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvertisementsMap.cs" />

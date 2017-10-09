@@ -2,10 +2,10 @@
 
 using MsWeb.DataObjects;
 
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.Services.ServiceContract;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.Services.ServiceContract;
 using MsWeb.Domains;
-using Winning.Framework.DMSP.Core.Paging;
+using Mingshu.Framework.MSWeb.Core.Paging;
 
 namespace MsWeb.IServices
 {

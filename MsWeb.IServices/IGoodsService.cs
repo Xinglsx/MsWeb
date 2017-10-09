@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Winning.Framework.DMSP.Services;
+using Mingshu.Framework.MSWeb.Services;
 
 using MsWeb.DataObjects;
-using Winning.Framework.DMSP.Services.ServiceContract;
-using Winning.Framework.DMSP.Core.Paging;
+using Mingshu.Framework.MSWeb.Services.ServiceContract;
+using Mingshu.Framework.MSWeb.Core.Paging;
 
 namespace MsWeb.IServices
 {

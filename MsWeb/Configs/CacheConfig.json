@@ -1,4 +1,4 @@
 ﻿{
   "Name": "AspNetCache",
-  "Type": "Winning.Framework.DMSP.Core.Caching.AspNetCache"
+  "Type": "Mingshu.Framework.MSWeb.Core.Caching.AspNetCache"
 }

@@ -6,9 +6,9 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 
-using Winning.Framework.DMSP.Common.Utilities;
-using Winning.Framework.DMSP.Web.Extensions;
-using Winning.Framework.DMSP.Web.WebApi;
+using Mingshu.Framework.MSWeb.Common.Utilities;
+using Mingshu.Framework.MSWeb.Web.Extensions;
+using Mingshu.Framework.MSWeb.Web.WebApi;
 
 namespace MsWeb.Controllers
 {

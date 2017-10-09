@@ -1,7 +1,7 @@
 ﻿using MsWeb.DataObjects;
 using System.Threading.Tasks;
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.Services.ServiceContract;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.Services.ServiceContract;
 
 namespace MsWeb.IServices
 {

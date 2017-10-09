@@ -1,5 +1,5 @@
 ﻿using MsWeb.Domains;
-using Winning.Framework.DMSP.DataAccess.Configurations;
+using Mingshu.Framework.MSWeb.DataAccess.Configurations;
 
 namespace MsWeb.DbConfigurations
 {

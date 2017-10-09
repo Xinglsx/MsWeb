@@ -5,11 +5,11 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MsWeb.DataObjects;
 using MsWeb.IServices;
-using Winning.Framework.DMSP.Core.Paging;
-using Winning.Framework.DMSP.Core.AspectX;
+using Mingshu.Framework.MSWeb.Core.Paging;
+using Mingshu.Framework.MSWeb.Core.AspectX;
 using MsWeb.Domains;
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.EFRepository;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.EFRepository;
 using MsWeb.Core.Utils;
 
 namespace MsWeb.Services

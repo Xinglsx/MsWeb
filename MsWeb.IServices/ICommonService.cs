@@ -1,6 +1,6 @@
 ﻿using MsWeb.DataObjects;
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.Services.ServiceContract;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.Services.ServiceContract;
 
 namespace MsWeb.IServices
 {

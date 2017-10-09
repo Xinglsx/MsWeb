@@ -4,7 +4,7 @@ using System.Web.Http;
 using MsWeb.DataObjects;
 using MsWeb.IServices;
 
-using Winning.Framework.DMSP.Web.WebApi;
+using Mingshu.Framework.MSWeb.Web.WebApi;
 
 namespace MsWeb.Controllers
 {

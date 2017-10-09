@@ -1,4 +1,4 @@
-﻿using Winning.Framework.DMSP.Core.BaseDataObject;
+﻿using Mingshu.Framework.MSWeb.Core.BaseDataObject;
 
 namespace MsWeb.DataObjects
 {

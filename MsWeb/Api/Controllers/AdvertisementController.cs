@@ -3,7 +3,7 @@ using MsWeb.IServices;
 using MsWeb.Services;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Winning.Framework.DMSP.Web.WebApi;
+using Mingshu.Framework.MSWeb.Web.WebApi;
 
 namespace MsWeb.Api.Controllers
 {

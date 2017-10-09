@@ -66,6 +66,34 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\DMSP\bin\Microsoft.Data.OData.dll</HintPath>
     </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.EFRepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.EFRepository.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Events, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Mingshu.Framework.MSWeb.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\MyWeb\bin\Newtonsoft.Json.dll</HintPath>
@@ -145,28 +173,6 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.Common">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.Core">
-      <HintPath>..\..\..\..\MyWeb\bin\Winning.Framework.DMSP.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.DataAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.EFRepository">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.EFRepository.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.Events">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.Services">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Services.dll</HintPath>
-    </Reference>
-    <Reference Include="Winning.Framework.DMSP.Web">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\Winning.Framework.DMSP.Web.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

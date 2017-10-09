@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using MsWeb.DataObjects;
 using MsWeb.Domains;
 using MsWeb.IServices;
-using Winning.Framework.DMSP.EFRepository;
-using Winning.Framework.DMSP.Services;
+using Mingshu.Framework.MSWeb.EFRepository;
+using Mingshu.Framework.MSWeb.Services;
 using MsWeb.Core.Utils;
-using Winning.Framework.DMSP.Core.Paging;
+using Mingshu.Framework.MSWeb.Core.Paging;
 using System.Data.SqlClient;
-using Winning.Framework.DMSP.Core.AspectX;
+using Mingshu.Framework.MSWeb.Core.AspectX;
 using System.Linq.Expressions;
 
 namespace MsWeb.Services

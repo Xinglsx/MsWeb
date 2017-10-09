@@ -2,9 +2,9 @@
 using MsWeb.Domains;
 using System;
 using System.Threading.Tasks;
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.EFRepository;
-using Winning.Framework.DMSP.Core.AspectX;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.EFRepository;
+using Mingshu.Framework.MSWeb.Core.AspectX;
 using System.Linq.Expressions;
 using MsWeb.IServices;
 

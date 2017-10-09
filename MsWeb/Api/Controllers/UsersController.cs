@@ -2,8 +2,8 @@
 using MsWeb.IServices;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Winning.Framework.DMSP.Core.Paging;
-using Winning.Framework.DMSP.Web.WebApi;
+using Mingshu.Framework.MSWeb.Core.Paging;
+using Mingshu.Framework.MSWeb.Web.WebApi;
 
 namespace MsWeb.Api.Controllers
 {

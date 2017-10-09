@@ -9,8 +9,8 @@ using System.Web.Mvc;
 using Top.Api;
 using Top.Api.Request;
 using Top.Api.Response;
-using Winning.Framework.DMSP.Core.Paging;
-using Winning.Framework.DMSP.Web.WebApi;
+using Mingshu.Framework.MSWeb.Core.Paging;
+using Mingshu.Framework.MSWeb.Web.WebApi;
 
 namespace MsWeb.Api.Controllers
 {

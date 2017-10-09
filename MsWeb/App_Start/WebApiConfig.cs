@@ -6,7 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
-using Winning.Framework.DMSP.Web.Filters;
+using Mingshu.Framework.MSWeb.Web.Filters;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
 

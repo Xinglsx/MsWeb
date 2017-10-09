@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MsWeb.DataObjects;
 using MsWeb.Domains;
 
-using Winning.Framework.DMSP.Services.Mapper;
+using Mingshu.Framework.MSWeb.Services.Mapper;
 
 namespace MsWeb.Services.Mapper
 {

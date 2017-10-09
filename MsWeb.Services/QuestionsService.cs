@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Winning.Framework.DMSP.Core.AspectX;
-using Winning.Framework.DMSP.Services;
-using Winning.Framework.DMSP.EFRepository;
+using Mingshu.Framework.MSWeb.Core.AspectX;
+using Mingshu.Framework.MSWeb.Services;
+using Mingshu.Framework.MSWeb.EFRepository;
 
 namespace MsWeb.Services
 {

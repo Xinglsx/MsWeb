@@ -4,9 +4,9 @@ using MsWeb.DataObjects;
 using System.Configuration;
 using System.IO;
 using MsWeb.Core.Utils;
-using Winning.Framework.DMSP.Services;
+using Mingshu.Framework.MSWeb.Services;
 using MsWeb.Domains;
-using Winning.Framework.DMSP.EFRepository;
+using Mingshu.Framework.MSWeb.EFRepository;
 
 namespace MsWeb.Services
 {

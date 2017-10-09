@@ -1,5 +1,5 @@
 using System;
-using Winning.Framework.DMSP.Core.BaseDomain;
+using Mingshu.Framework.MSWeb.Core.BaseDomain;
 
 namespace MsWeb.Domains
 {

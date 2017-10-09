@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-using Winning.Framework.DMSP.Core.Infrastructure.Engine;
-using Winning.Framework.DMSP.Core.TypeFinder;
-using Winning.Framework.DMSP.DataAccess;
+using Mingshu.Framework.MSWeb.Core.Infrastructure.Engine;
+using Mingshu.Framework.MSWeb.Core.TypeFinder;
+using Mingshu.Framework.MSWeb.DataAccess;
 
 namespace MsWeb
 {
