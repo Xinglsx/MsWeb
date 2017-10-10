@@ -47,9 +47,9 @@
     <script>
         $(".btnSearch").on('click', function () {
             var input = $('.inputSearch').val();
-            $.getJSON("/api/Tbk/GetCoupons?q="+input).success(function (data) {
+            $.getJSON("/api/Tbk/GetCouponList?q=" + input + "&pageNo=1&pageSize=24").success(function (data) {
                 $(".main").html("")
-                $.each(data.tbk_dg_item_coupon_get_response.results.tbk_coupon, function (i, item) {
+                $.each(data.data, function (i, item) {
                     $(".main").append("<div class='col-md-3'>"
                         + "<p><a href='" + item.coupon_click_url + "'><img src='" + item.pict_url + "' width='280' height='200'/></a></p>"
                     + "<p width='280'>" + item.title + "</p>"
@@ -61,9 +61,9 @@
             })
         })
         @*首次进入加载默认*@
-        $.getJSON("/api/Tbk/GetCoupons").success(function (data) {
+        $.getJSON("/api/Tbk/GetCouponList?q=&pageNo=1&pageSize=24").success(function (data) {
             $(".main").html("")
-            $.each(data.tbk_dg_item_coupon_get_response.results.tbk_coupon, function (i, item) {
+            $.each(data.data, function (i, item) {
                 $(".main").append("<div class='col-md-3'>"
                     + "<p><a href='" + item.coupon_click_url + "'><img src='" + item.pict_url + "' width='280' height='200'/></a></p>"
                     + "<p width='280'>" + item.title + "</p>"
