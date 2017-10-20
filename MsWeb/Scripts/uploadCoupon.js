@@ -48,6 +48,8 @@ function savrRecommandGoods() {
         reason: $("#inputRecommendReason").val(),
         state: $(this).id == "btnSaveDraft" ? 0 : 1,
         image: imageBase64,
+        recommender:localStorage.userid,
+        recommendname: localStorage.nickname,
     }
 
     $.ajax({

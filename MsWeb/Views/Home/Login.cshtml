@@ -37,7 +37,9 @@
             success: function (rst) {
                 if (rst.code > 0) {
                     //写cookie、localStorage
-                    localStorage.userid = rst.data.userid;
+                    localStorage.userid = rst.data.ID;
+                    localStorage.usercode = rst.data.userid;
+                    localStorage.username = rst.data.nickname;
                     document.write(localStorage.userid);
                     setCookie("isLogin", true, 10, '/');
                     location.href = "/Home";
