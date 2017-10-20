@@ -12,7 +12,7 @@
     <script type="text/javascript" src="~/Scripts/qrcode.js"></script>
     <link href="~/Content/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        body {
+        .body-center {
             text-align: center;
         }
 
@@ -22,28 +22,29 @@
     </style>
 </head>
 <body>
-    <div class="dialog">
-        <div id="qrcodeImg" class="img"></div>
-        <div class="textd">
-            <p class="tips-opentaobao">打开手机淘宝，扫描二维码即可领取优惠券。</p>
-            <p id="pHide">点击任意地方消失,30秒后自动隐藏！</p>
+    <div class="body-center">
+        <div class="dialog">
+            <div id="qrcodeImg" class="img"></div>
+            <div class="textd">
+                <p class="tips-opentaobao">打开手机淘宝，扫描二维码即可领取优惠券。</p>
+                <p id="pHide">点击任意地方消失,30秒后自动隐藏！</p>
+            </div>
         </div>
-    </div>  
-    <div>
         <div>
-            <p><h4>想自己去找券？<a href="/Coupon/FindCoupon">点击这里</a></h4></p>
+            <div>
+                <p><h4>想自己去找券？<a href="/Coupon/FindCoupon">点击这里</a></h4></p>
+            </div>
+            <div class="main">
+                @*<div class="col-md-3">
+                        <a href="http://sj.qq.com/myapp/detail.htm?apkName=com.alimama.moon">
+                            <img src="/img/softicon/tblm_icon.png" width="94" height="94" />
+                        </a>
+                        <h4>&nbsp;&nbsp;淘宝联盟</h4>
+                        <p><a class="btn btn-default" href="http://sj.qq.com/myapp/detail.htm?apkName=com.alimama.moon">进入下载 &raquo;</a></p>
+                    </div>*@
+            </div>
         </div>
-        <div class="main">
-            @*<div class="col-md-3">
-                    <a href="http://sj.qq.com/myapp/detail.htm?apkName=com.alimama.moon">
-                        <img src="/img/softicon/tblm_icon.png" width="94" height="94" />
-                    </a>
-                    <h4>&nbsp;&nbsp;淘宝联盟</h4>
-                    <p><a class="btn btn-default" href="http://sj.qq.com/myapp/detail.htm?apkName=com.alimama.moon">进入下载 &raquo;</a></p>
-                </div>*@
-        </div>
-    </div>
-    <script type="text/javascript">
+        <script type="text/javascript">
         var x = 30;
         var qrcodeImg = new QRCode(document.getElementById("qrcodeImg"), {
             width: 300,
@@ -74,7 +75,7 @@
                     + "<p>推荐时间:<font color='blue'>" + item.recommendtime + "</font></p>"
                     + "<p><a class='btn btn-default' href='" + item.link + "'>点击领取优惠券</a>&nbsp;&nbsp;<a class='btn btn-default btnQ' img_link='" + item.image + "' data_link='" + item.link + "'>显示二维码</a></p>"
                     + "<br></div>");
-                    
+
                 });
                 $('.btnQ').on('click', function (e) {
                     //JS生成二维码，并且显示在悬浮DIV中
@@ -90,6 +91,7 @@
             x = 30;
         })
 
-    </script>
+        </script>
+    </div>
 </body> 
 </html>

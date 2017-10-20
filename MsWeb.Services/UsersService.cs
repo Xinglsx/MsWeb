@@ -188,8 +188,27 @@ namespace MsWeb.Services
                     }
                 }
             })
-            .WithLog("登录信息.")
+            .WithLog("登陆信息.")
             .Execute();
+        }
+
+        public async Task<ReturnResult<bool>> ValidateUploadCoupon(string userid)
+        {
+            ReturnResult<bool> result = new ReturnResult<bool>();
+
+            Expression<Func<Users, bool>> exp = x => x.userid == userid && x.usertype >= 3;
+            var user = await this.FindOneAsync<UsersModel, Users>(repository, exp);
+
+            if (user == null)
+            {
+                result.code = -107;
+                result.data = false;
+                result.message = "用户无上传商品权限！";
+                return result;
+            }
+            result.code = 1;
+            result.data = true;
+            return result;
         }
 
         #endregion

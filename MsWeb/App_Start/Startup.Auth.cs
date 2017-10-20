@@ -26,8 +26,8 @@ namespace MsWeb
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
-            // 使应用程序可以使用 Cookie 来存储已登录用户的信息
-            // 并使用 Cookie 来临时存储有关使用第三方登录提供程序登录的用户的信息
+            // 使应用程序可以使用 Cookie 来存储已登陆用户的信息
+            // 并使用 Cookie 来临时存储有关使用第三方登陆提供程序登陆的用户的信息
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
@@ -46,7 +46,7 @@ namespace MsWeb
             // 使应用程序可以使用不记名令牌来验证用户身份
             app.UseOAuthBearerTokens(OAuthOptions);
 
-            // 取消注释以下行可允许使用第三方登录提供程序登录
+            // 取消注释以下行可允许使用第三方登陆提供程序登陆
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
             //    clientSecret: "");

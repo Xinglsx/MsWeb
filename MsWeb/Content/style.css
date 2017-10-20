@@ -48,9 +48,9 @@
 .wechatNumber{
     position:absolute;
     top: 5px;
-    right: -5px;
-    width:200px;
-    height:200px;
+    right: 0px;
+    width:190px;
+    height:190px;
     margin: auto;
     z-index:9999;
     display:none;
@@ -60,4 +60,17 @@
     width:160px;
     height:160px;
 }
+.status-login-register{
+    background-color:gold;
+    height:20px;
+    margin-bottom:5px;
+}
 
+/*登录、注册、上传商品表单居中*/ 
+.form-center {
+    width: 300px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    height: 280px;
+    border-radius: 10px;
+}

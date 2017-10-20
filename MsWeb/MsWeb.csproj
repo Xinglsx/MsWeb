@@ -297,6 +297,7 @@
     <Content Include="Scripts\qrcode.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\uploadCoupon.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -323,6 +324,7 @@
     <Content Include="Views\Home\UpdateLog.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Coupon\UploadCoupon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.Core\MsWeb.Core.csproj">

@@ -12,7 +12,7 @@ namespace MsWeb.IServices
     public interface IUsersService : IBaseServiceKeyedString<UsersModel>, IServiceContract
     {
         /// <summary>
-        /// 验证用户登录信息，登录名支持用户名、邮箱、手机号。
+        /// 验证用户登陆信息，登陆名支持用户名、邮箱、手机号。
         /// </summary>
         /// <param name="strCode">用户名、邮箱或手机号</param>
         /// <param name="password">用户密码(暂未加密)</param>
@@ -49,5 +49,11 @@ namespace MsWeb.IServices
         /// <param name="newPassword">新密码</param>
         /// <returns></returns>
         Task<ReturnResult<bool>> ChangePassword(string id, string oldPassword, string newPassword);
+        /// <summary>
+        /// 查看用户是否具有上传商品权限
+        /// </summary>
+        /// <param name="userid">用户名</param>
+        /// <returns></returns>
+        Task<ReturnResult<bool>> ValidateUploadCoupon(string userid);
     }
 }

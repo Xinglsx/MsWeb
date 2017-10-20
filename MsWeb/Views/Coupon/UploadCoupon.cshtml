@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "上传优惠券！";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/uploadCoupon.js" type="text/javascript"></script>
+
+<div class="uploadCouponMain">
+    <div class="container">
+        <h3>特约用户上传推广商品信息</h3>
+    </div>
+    <div class="uploadCouponForm">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputShareText" class="col-sm-2 control-label" in>分享方案</label>
+                <div class="col-sm-10">
+                    <textarea type="text" rows="9" class="form-control" id="inputShareText" placeholder="请将淘宝客中的分享方案粘贴到这里,点击解析分享方案将自动解析对应数据！"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default btn-saveDraft" onclick="return analysisShareText()">解析分享方案</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputGoodsDescription" class="col-sm-2 control-label">商品描述</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputGoodsDescription" placeholder="商品描述">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCouponLink" class="col-sm-2 control-label">优惠券链接</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCouponLink" placeholder="优惠券链接">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputZkl" class="col-sm-2 control-label">吱口令</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputZkl" placeholder="淘宝吱口令">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPrice" class="col-sm-2 control-label">在售价</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPrice" placeholder="在售价格">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputCouponPrice" class="col-sm-2 control-label">券后价</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCouponPrice" placeholder="券后价格">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputExpiryDate" class="col-sm-2 control-label">失效日期</label>
+                <div class="col-sm-10">
+                    <input type="datetime" class="form-control" id="inputExpiryDate" placeholder="失效日期">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputRecommendReason" class="col-sm-2 control-label">推荐理由</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="inputRecommendReason" placeholder="推荐理由，请尽量写的充实一点，这样才会吸引人去购买！" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputUploadImage" class="col-sm-2 control-label">上传主图</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="inputUploadImage" placeholder="uploadImage" accept="image/png" onchange="imgChange(event)">
+                    <img src="" id="showImage" alt="" style="max-height:300px;max-width:300px">
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default btn-saveDraft" id="btnSaveDraft" onclick="return savrRecommandGoods()">保存草稿</button>
+                    <button type="submit" class="btn btn-default btn-submitAudit" id="btnSubmitAudit" onclick="return savrRecommandGoods()">提交审核</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    //检测用户是否有上传商品的权限
+    var isLogin = getCookie('isLogin').toString();
+    if (isLogin != "true") {
+        $('.uploadCouponMain').html('<h3>对不起，您还没有登录，请登录后再试，谢谢！</h3>');
+    }
+    else {
+        $.ajax({
+            url: "/api/Users/ValidateUploadCoupon?userid=" + localStorage.userid,
+            type: "post",
+            success: function (rst) {
+                if (rst.code < 0) {
+                    $('.uploadCouponMain').html('<h3>对不起，您没有上传商品的权限！请先申请成为特约用户，谢谢！</h3>');
+                }
+            }
+        })
+    }
+
+</script>

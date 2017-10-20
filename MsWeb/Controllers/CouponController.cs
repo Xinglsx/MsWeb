@@ -18,5 +18,10 @@ namespace MsWeb.Controllers
         {
             return View("~/Views/Coupon/FindCoupon.cshtml");
         }
+
+        public ActionResult UploadCoupon()
+        {
+            return View("~/Views/Coupon/UploadCoupon.cshtml");
+        }
     }
 }

@@ -38,6 +38,11 @@ namespace MsWeb.Api.Controllers
         {
             return await Service.ValidateUserInfo(model.strCode, model.password);
         }
+        [HttpPost]
+        public async Task<ReturnResult<bool>> ValidateUploadCoupon(string userid)
+        {
+            return await Service.ValidateUploadCoupon(userid);
+        }
     }
 
     public class UserApiModel

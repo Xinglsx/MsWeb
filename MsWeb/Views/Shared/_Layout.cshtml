@@ -69,6 +69,7 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("闪荐", "GoodsIndex", "Home", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("推荐商品", "Index", "Coupon", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("上传商品", "UploadCoupon", "Coupon", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("招募令", "Recruit", "Home", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("软件下载","SoftDownload" ,"Home",new { area = ""},null)</li>
                         <li>@Html.ActionLink("更新日志", "UpdateLog", "Home", new { area = "" }, null)</li>
@@ -79,19 +80,21 @@
         </div>
         <div class="container body-content">
             <div class="status-login-register">
-                <a href="/Home/Register">注册</a>&nbsp;&nbsp;<a href="/Home/Login">登录</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Register">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Login">登陆</a>
             </div>
             @RenderBody()
         </div>
         <script type="text/javascript">
             function userExit() {
-                delCookie("userid","/");
+                localStorage.userid = "";
+                document.write(localStorage.userid);
+                setCookie("isLogin", false, 10, '/');
                 location.href = "/Home";
             }
 
-            var userid = getCookie('userid');
-            if (userid != null && userid != "") {
-                $(".status-login-register").html("<p><a href=''>" + userid + "</a>，欢迎您！  <a onclick='userExit()' href='#'>退出</a></p>");
+            var isLogin = getCookie('isLogin');
+            if (isLogin == "true") {
+                $(".status-login-register").html("<p>&nbsp;&nbsp;<a href=''>" + localStorage.userid + "</a>，欢迎您！  <a onclick='userExit()' href='#'>退出</a></p>");
             }
         </script>
     </main>

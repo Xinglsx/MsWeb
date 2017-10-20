@@ -60,7 +60,7 @@ namespace MsWeb.Models
     public class RemoveLoginBindingModel
     {
         [Required]
-        [Display(Name = "登录提供程序")]
+        [Display(Name = "登陆提供程序")]
         public string LoginProvider { get; set; }
 
         [Required]

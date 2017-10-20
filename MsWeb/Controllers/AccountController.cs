@@ -170,14 +170,14 @@ namespace MsWeb.Controllers
                 && ticket.Properties.ExpiresUtc.HasValue
                 && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
             {
-                return BadRequest("外部登录失败。");
+                return BadRequest("外部登陆失败。");
             }
 
             ExternalLoginData externalData = ExternalLoginData.FromIdentity(ticket.Identity);
 
             if (externalData == null)
             {
-                return BadRequest("外部登录已与某个帐户关联。");
+                return BadRequest("外部登陆已与某个帐户关联。");
             }
 
             IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
