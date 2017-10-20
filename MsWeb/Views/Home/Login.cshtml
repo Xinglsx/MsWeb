@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "登录-MSKJ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="width:300px;margin:0 auto;background-color:antiquewhite;height:280px;border-radius:10px">
+    <h2 class="text-center">用户登录</h2>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">用户名</label>
+            <input type="text" class="form-control" id="txtUserCode" placeholder="用户名">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" id="txtPassword" placeholder="密码">
+        </div>
+        <button type="submit" class="btn btn-default btn-login" style="width:100px;">登录</button>
+        <button type="button" class="btn btn-default btn-reset pull-right" style="width:100px;">重置</button>
+    </form>
+</div>
+<script type="text/javascript">
+    $('.btn-login').click(function () {
+        var data = {
+            strCode: $("#txtUserCode").val(),
+            password: $("#txtPassword").val()
+        }
+
+        $.ajax({
+            url: "/api/Users/ValidateUserInfo",
+            type: "post",
+            data: data,
+            success: function (rst) {
+                if (rst.code > 0) {
+                    //写cookie
+                    //$.cookie('userid', rst.data.userid);
+                    setCookie("userid", rst.data.userid, 10,'/');
+                    location.href = "/Home";
+                } else {
+                    alert(rst.message);
+                }
+            }
+        });
+    })
+</script>

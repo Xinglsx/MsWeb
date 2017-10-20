@@ -115,13 +115,10 @@ namespace MsWeb.Controllers
             {
                 result.code = -118;
                 result.message = "淘宝口令生成失败";
-            }
-            else
-            {
-                result.code = 1;
-                result.message = response.Body;
                 return result;
             }
+            result.code = 1;
+            result.message = response.Body;
             return result;
         }
 
@@ -143,7 +140,7 @@ namespace MsWeb.Controllers
             req.PageNo = pageNo ?? 1;
             req.PageSize = pageSize ?? 40;
             //req.StartTkRate = 1000;//淘客佣金比率上限，如：1234表示12.34%
-            req.EndTkRate = 1000;//淘客佣金比率下限，如：1234表示12.34%
+            //req.EndTkRate = 1000;//淘客佣金比率下限，如：1234表示12.34%
             //req.StartPrice = 10;//折扣价范围下限，单位：元
             //req.EndPrice = 10;//折扣价范围上限，单位：元
             TbkItemGetResponse response = client.Execute(req);

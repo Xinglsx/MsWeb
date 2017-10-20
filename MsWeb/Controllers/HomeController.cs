@@ -56,5 +56,20 @@ namespace MsWeb.Controllers
             return View("~/Views/Home/SoftDownload.cshtml");
         }
 
+        public ActionResult UpdateLog()
+        {
+            return View("~/Views/Home/UpdateLog.cshtml");
+        }
+
+        public ActionResult Login()
+        {
+            return View("~/Views/Home/Login.cshtml");
+        }
+
+        public ActionResult Register()
+        {
+            return View("~/Views/Home/Register.cshtml");
+        }
+
     }
 }

@@ -1,22 +1,30 @@
 ﻿@{
-    Layout = "~/Views/Shared/_layout.cshtml";
+    Layout =null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="zh-cn">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>帮助</title>
-    <style>
-        body{ text-align:center} 
-        #div_center{margin:0 auto} 
-    </style>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>帮助中心-闪荐</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" href="images/icon_114.png" />
+    <link rel="stylesheet" href="~/Content/style-H5.css?v=12" />
 </head>
 <body>
-    <div>
-      <h1>Test</h1>
+    <div class="app-wrapper">
+        <div id="wrapper" class="app-content">
+            <div id="scroller">
+                <div class="app-main">
+                    <div class="app-box-hd">@Model.Question</div>
+                    <div>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Model.Explain</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body> 
+</body>
 </html>

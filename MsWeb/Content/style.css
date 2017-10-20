@@ -1,0 +1,63 @@
+﻿.dialog{
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    z-index:9999;
+    display:none;
+    text-align:center;
+}
+.textd{
+    background-color:#ffffd7;
+    width:300px;
+    height:50px;
+    margin:auto;
+}
+.img{
+    background-color:aqua;
+    width:300px;
+    height:300px;
+    margin:auto;
+}
+.tips-opentaobao{
+    color:red;
+}
+
+/*微信公众号相关*/
+.wechatButton{
+    position:fixed;
+    top: 5px;
+    right: 15px;
+    width:40px;
+    height:40px;
+    margin: auto;
+    z-index:9998;
+    text-align:center;
+}
+@media (max-width:768px){
+    .wechatButton{
+        display:none;
+    }
+}
+.wechatButton img{
+    width:40px;
+    height:40px;
+}
+.wechatNumber{
+    position:absolute;
+    top: 5px;
+    right: -5px;
+    width:200px;
+    height:200px;
+    margin: auto;
+    z-index:9999;
+    display:none;
+    text-align:center;
+}
+.wechatNumber img{
+    width:160px;
+    height:160px;
+}
+
