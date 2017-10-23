@@ -1,6 +1,5 @@
 ﻿
 @{
-    ViewBag.Title = "上传优惠券！";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -69,7 +68,7 @@
                 <label for="inputUploadImage" class="col-sm-2 control-label">上传主图</label>
                 <div class="col-sm-10">
                     <input type="file" class="form-control" id="inputUploadImage" placeholder="uploadImage" accept="image/png" onchange="imgChange(event)">
-                    <img src="" id="showImage" alt="" style="max-height:300px;max-width:300px">
+                    <img src="" id="showImage" alt="" style="max-height:300px;max-width:300px;margin-top:2px;">
                 </div>
                 
             </div>
@@ -91,7 +90,7 @@
     }
     else {
         $.ajax({
-            url: "/api/Users/ValidateUploadCoupon?userid=" + localStorage.userid,
+            url: "/api/Users/ValidateUploadCoupon?userid=" + localStorage.usercode,
             type: "post",
             success: function (rst) {
                 if (rst.code < 0) {

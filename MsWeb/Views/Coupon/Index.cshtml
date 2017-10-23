@@ -6,7 +6,6 @@
 
 <html>
 <head>
-    <title>粉丝福利券</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <script type="text/javascript" src="~/Scripts/qrcode.js"></script>
@@ -45,7 +44,7 @@
             </div>
         </div>
         <script type="text/javascript">
-        var x = 30;
+        var x = 31;
         var qrcodeImg = new QRCode(document.getElementById("qrcodeImg"), {
             width: 300,
             height: 300,
@@ -58,7 +57,7 @@
                     document.getElementById("pHide").innerHTML = "点击任意地方消失," + x + "秒后自动消失！";
                 } else {
                     $(".dialog").hide();
-                    x = 30;
+                    x = 31;
                 }
             }
         }
@@ -88,7 +87,7 @@
         })
         $('.dialog').on('click', function (e) {
             $(".dialog").hide();
-            x = 30;
+            x = 31;
         })
 
         </script>

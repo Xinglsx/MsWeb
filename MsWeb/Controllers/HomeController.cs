@@ -21,9 +21,9 @@ namespace MsWeb.Controllers
         */
         public ActionResult Index()
         {
-            ViewBag.Title = "MSKJ";
+            ViewBag.Title = "闪荐-寻找更便宜的好东西";
 
-            return View();
+            return View("~/Views/Coupon/Index.cshtml");
         }
 
         public ActionResult GoodsIndex()
@@ -34,40 +34,43 @@ namespace MsWeb.Controllers
 
         public ActionResult AboutUs()
         {
-            ViewBag.Title = "关于闪荐";
+            ViewBag.Title = "闪荐-关于我们";
             return View("~/Views/Home/Aboutus.cshtml");
         }
 
         public ActionResult Recruit()
         {
-            ViewBag.Title = "招募令";
+            ViewBag.Title = "闪荐-招募令";
             return View("~/Views/Home/Recruit.cshtml");
         }
 
         public ActionResult SjDownload()
         {
-            ViewBag.Title = "下载闪荐";
+            ViewBag.Title = "闪荐-Android版本下载";
             return View("~/Views/Home/SjDownload.cshtml");
         }
 
         public ActionResult SoftDownload()
         {
-            ViewBag.Title = "下载闪荐";
+            ViewBag.Title = "闪荐-软件下载中心";
             return View("~/Views/Home/SoftDownload.cshtml");
         }
 
         public ActionResult UpdateLog()
         {
+            ViewBag.Title = "闪荐-网站更新日志";
             return View("~/Views/Home/UpdateLog.cshtml");
         }
 
         public ActionResult Login()
         {
+            ViewBag.Title = "闪荐-登陆";
             return View("~/Views/Home/Login.cshtml");
         }
 
         public ActionResult Register()
         {
+            ViewBag.Title = "闪荐-注册";
             return View("~/Views/Home/Register.cshtml");
         }
 

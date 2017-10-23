@@ -54,11 +54,12 @@ namespace MsWeb.Controllers
 
         public ActionResult Index(String id)
         {
-            HelpModel temp = Questions.FirstOrDefault(p => p.ID == id);
-            if(temp == null)
+            List<HelpModel> temp = Questions.FindAll(p => p.ID == id);
+            if (temp == null || temp.Count <= 0)
             {
-                temp = Questions[0];
+                temp = Questions;
             }
+            ViewBag.Title = "闪荐-帮助中心";
             return View(temp);
         }
     }

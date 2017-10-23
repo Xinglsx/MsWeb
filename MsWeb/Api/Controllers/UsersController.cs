@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Mingshu.Framework.MSWeb.Core.Paging;
 using Mingshu.Framework.MSWeb.Web.WebApi;
+using MsWeb.Core.Utils;
 
 namespace MsWeb.Api.Controllers
 {
@@ -42,6 +43,16 @@ namespace MsWeb.Api.Controllers
         public async Task<ReturnResult<bool>> ValidateUploadCoupon(string userid)
         {
             return await Service.ValidateUploadCoupon(userid);
+        }
+        [HttpGet]
+        public ReturnResult<string> GetVerificationCode(string mobileNo)
+        {
+            ReturnResult<string> result = new ReturnResult<string>();
+
+            result.data = MessageUtil.SendMessageVerificationCode(mobileNo);
+            result.code = 1;
+
+            return result;
         }
     }
 
