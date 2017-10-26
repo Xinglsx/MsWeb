@@ -2,7 +2,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container"  style="width:300px;margin:0 auto;background-color:antiquewhite;height:380px;border-radius:10px">
+<div class="container"  style="width:300px;margin:0 auto;background-color:antiquewhite;height:480px;border-radius:10px">
     <h2 class="text-center">新用户注册</h2>
     <form>
         <div class="form-group">
@@ -16,6 +16,14 @@
         <div class="form-group">
             <label for="exampleInputPassword1">确认密码</label>
             <input type="password" class="form-control" id="txtConfirmPassword" placeholder="确认密码">
+        </div>
+        <div id="VerificationCode" class="form-group">
+            <label for="txtVerificationCode">验证码</label>
+            <input type="text" class="form-control" id="txtVerificationCode" placeholder="验证码">
+        </div>
+        <div>
+            <div class="code" id="checkCode" onclick="createCode()"></div>
+            <a href="#" onclick="createCode()" style="margin-top:10px;">点击刷新</a>
         </div>
         @*<div class="form-group">
             <label for="exampleInputEmail1">手机号</label>
@@ -41,6 +49,8 @@
     if (isLogin == "true") {
         location.href = "/Home";
     }
+    var code;
+    createCode();
 
     $('.btn-register').attr('disabled', true);
     function checkboxOnclick(checkbox) {
@@ -76,12 +86,18 @@
     }
 
     function regist() {
+        var inputCode = document.getElementById("txtVerificationCode").value;
         var password = $('#txtPassword').val();
         var confirmPassword = $('#txtConfirmPassword').val();
         if ($("#txtUserCode").val() == "" || password == "" || confirmPassword == "") {
             alert("请先输入完整的注册信息！");
         }else if (password != confirmPassword) {
             alert("两次输入的密码不一致，请检查！");
+        } else if (inputCode.length <= 0) {
+            alert("请输入验证码！");
+        } else if (inputCode.toUpperCase() != code.toUpperCase()) {
+            alert("验证码输入有误！");
+            createCode();
         } else {
             var data = {
                 strCode: $("#txtUserCode").val(),
@@ -101,11 +117,27 @@
                         location.href = "/Home";
                     } else {
                         alert(rst.message);
+                        createCode();
                     }
                 }
             });
         }
         return false;
+    }
+
+    function createCode() {
+        code = "";
+        var codeLength = 6; //验证码的长度
+        var checkCode = document.getElementById("checkCode");
+        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+        for (var i = 0; i < codeLength; i++) {
+            var charNum = Math.floor(Math.random() * 52);
+            code += codeChars[charNum];
+        }
+        if (checkCode) {
+            checkCode.className = "code";
+            checkCode.innerHTML = code;
+        }
     }
 </script>
 

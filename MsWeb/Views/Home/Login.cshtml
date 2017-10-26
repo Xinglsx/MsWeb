@@ -2,16 +2,26 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container" style="width:300px;margin:0 auto;background-color:antiquewhite;height:280px;border-radius:10px">
+
+
+<div class="container" style="min-width:230px; max-width:300px;margin:0 auto;background-color:antiquewhite;height:370px;border-radius:10px">
     <h2 class="text-center">用户登陆</h2>
     <form>
         <div class="form-group">
-            <label for="exampleInputEmail1">用户名</label>
+            <label for="txtUserCode">用户名</label>
             <input type="text" class="form-control" id="txtUserCode" placeholder="用户名">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">密码</label>
+            <label for="txtPassword">密码</label>
             <input type="password" class="form-control" id="txtPassword" placeholder="密码">
+        </div>
+        <div id="VerificationCode" class="form-group">
+            <label for="txtVerificationCode">验证码</label>
+            <input type="text" class="form-control" id="txtVerificationCode" placeholder="验证码">
+        </div>
+        <div>
+            <div class="code" id="checkCode" onclick="createCode()"></div>
+            <a href="#" onclick="createCode()" style="margin-top:10px;">点击刷新</a>            
         </div>
         <button type="submit" class="btn btn-default btn-login" style="width:100px;" onclick="return login()">登陆</button>
         <button type="button" class="btn btn-default btn-reset pull-right" style="width:100px;">重置</button>
@@ -22,31 +32,63 @@
     if (isLogin == "true") {
         location.href = "/Home";
     }
+    var code;
+    createCode();
 
     function login() {
-        var data = {
-            strCode: $("#txtUserCode").val(),
-            password: $("#txtPassword").val()
-        }
-
-        $.ajax({
-            url: "/api/Users/ValidateUserInfo",
-            type: "post",
-            data: data,
-            success: function (rst) {
-                if (rst.code > 0) {
-                    //写cookie、localStorage
-                    localStorage.userid = rst.data.ID;
-                    localStorage.usercode = rst.data.userid;
-                    localStorage.username = rst.data.nickname;
-                    document.write(localStorage.userid);
-                    setCookie("isLogin", true, 10, '/');
-                    location.href = "/Home";
-                } else {
-                    alert(rst.message);
-                }
+        var inputCode = document.getElementById("txtVerificationCode").value;
+        var strCode = $("#txtUserCode").val();
+        var password = $("#txtPassword").val();
+        if (strCode.length <= 0) {
+            alert("请输入用户名！");
+        } else if (password.length <= 0) {
+            alert("请输入密码！");
+        }else if (inputCode.length <= 0) {
+            alert("请输入验证码！");
+        } else if (inputCode.toUpperCase() != code.toUpperCase()) {
+            alert("验证码输入有误！");
+            createCode();
+        } else {
+            var data = {
+                strCode: strCode,
+                password: password,
             }
-        });
+
+            $.ajax({
+                url: "/api/Users/ValidateUserInfo",
+                type: "post",
+                data: data,
+                success: function (rst) {
+                    if (rst.code > 0) {
+                        //写cookie、localStorage
+                        localStorage.userid = rst.data.ID;
+                        localStorage.usercode = rst.data.userid;
+                        localStorage.username = rst.data.nickname;
+                        document.write(localStorage.userid);
+                        setCookie("isLogin", true, 10, '/');
+                        location.href = "/Home";
+                    } else {
+                        alert(rst.message);
+                        createCode();
+                    }
+                }
+            });
+        }
         return false;
+    }
+
+    function createCode() {
+        code = "";
+        var codeLength = 6; //验证码的长度
+        var checkCode = document.getElementById("checkCode");
+        var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+        for (var i = 0; i < codeLength; i++) {
+            var charNum = Math.floor(Math.random() * 52);
+            code += codeChars[charNum];
+        }
+        if (checkCode) {
+            checkCode.className = "code";
+            checkCode.innerHTML = code;
+        }
     }
 </script>

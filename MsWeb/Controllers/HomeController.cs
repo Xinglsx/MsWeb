@@ -21,9 +21,9 @@ namespace MsWeb.Controllers
         */
         public ActionResult Index()
         {
-            ViewBag.Title = "闪荐-寻找更便宜的好东西";
+            ViewBag.Title = "MSKJ";
 
-            return View("~/Views/Coupon/Index.cshtml");
+            return View();
         }
 
         public ActionResult GoodsIndex()

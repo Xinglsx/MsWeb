@@ -60,10 +60,16 @@
     width:160px;
     height:160px;
 }
+/*登陆注册头*/
 .status-login-register{
     background-color:gold;
     height:20px;
-    margin-bottom:5px;
+    margin-bottom:8px;
+    margin-top:-9px;
+}
+.slider-show{
+    margin-top:-170px;
+    border-radius: 20px;
 }
 
 /*登录、注册、上传商品表单居中*/ 
@@ -73,4 +79,31 @@
     background-color: antiquewhite;
     height: 280px;
     border-radius: 10px;
+}
+/*DIV居中*/
+.div-center-block {  
+    float: none;  
+    display: block;  
+    margin-left: auto;  
+    margin-right: auto;  
+}  
+/*简单的验证码实现*/
+.code {
+	background: url(code_bg.jpg);
+	font-family: Arial;
+	font-style: italic;
+	color: blue;
+	font-size: 30px;
+	border: 0;
+	padding: 2px 3px;
+	letter-spacing: 3px;
+	font-weight: bolder;
+	float: left;
+	cursor: pointer;
+	width: 70%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	vertical-align: middle;
+    margin-top:-22px;
 }

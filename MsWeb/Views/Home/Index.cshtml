@@ -1,11 +1,158 @@
-﻿<div class="jumbotron">
-    <h1>MSKJ</h1>
-    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSKJ目前仅推出了一款安卓手机APP[<a href="Home/GoodsIndex"><font color="red">闪荐</font></a>]
-    为淘宝/天猫用户提供大量的购物优惠券！非常适合经常购物的朋友们使用！</p>
-    <p class="lead">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSKJ后续还将推出微信公众号，为广大买家提供更多优惠信息！
-        敬请大家一起见证！
-    </p>
-    <p background_color="red"><a class="btn btn-default" href="~/Home/GoodsIndex">了解更多 &raquo;</a></p>
+﻿<style type="text/css">
+    *{
+    margin: 0;
+    padding: 0;
+}
+</style>
+<div style="height:200px;width:100%;margin-top:-8px;">
+    <img src="~/images/Base/index_background.jpg" style="width:100%;"/>
 </div>
+<div class="container slider-show">
+    <div id="slider" class="slider">
+        @*//轮播箭头*@
+        @*<p class="lastpic"><img src="~/images/sj_guides/arrow_prev.png" class="img-responsive arrow-size"></p>
+        <p class="nextpic"><img src="~/images/sj_guides/arrow_next.png" class="img-responsive arrow-size"></p>*@
+        @*//轮播图片*@
+        <ul id="slides" class="slides clearfix">
+            <li><img class="responsive" src="~/images/sj_guides/image_guide_1.jpg" alt="暂无图片"></li>
+            <li><img class="responsive" src="~/images/sj_guides/image_guide_2.jpg" alt="暂无图片"></li>
+            <li><img class="responsive" src="~/images/sj_guides/image_guide_3.jpg" alt="暂无图片"></li>
+            <li><img class="responsive" src="~/images/sj_guides/image_guide_4.jpg" alt="暂无图片"></li>
+        </ul>
+    </div>
+</div>
+<div class="div-center-block" style="max-width:500px;margin-top:-15px;color:red;">
+    <h1>科技引领未来，应用改变生活</h1>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var len = $(".slider li").length - 1;
+        //给slider设置样式
+        $(".slider").css({
+            "width": "100%",
+            "height": "inherit",
+            "overflow": "hidden",
+            "display": "inline-block"
+        });
+
+        //给ul设置宽度
+        $(".slides").css({
+            "position": "relative",
+            "width": ((len + 1) * 100).toString() + "%",
+            "margin": "0",
+            "padding": "0"
+        });
+        //给li设置百分比宽度
+        $(".slides li").css({
+            "width": (100 / (len + 1)).toString() + "%",
+            "float": "left"
+        });
+        //给图片设置宽度
+        $(".responsive").css({
+            "width": "100%",
+            "height": "inherit"
+        });
+        //控制点样式
+        //$(".slider p").css({
+        //    "position": "absolute",
+        //    "z-index": "999",
+        //    "cursor": "pointer"
+        //});
+        //$(".slider .lastpic").css({
+        //    "left": "0",
+        //    "margin-top": "20%"
+        //});
+        //$(".slider .nextpic").css({
+        //    "right": "0",
+        //    "margin-top": "20%"
+        //});
+        //animate移动
+        var i = 0;
+        //$(".nextpic").click(function(){
+        // moveNext(i);
+        //});
+        //$(".lastpic").click(function(){
+        // moveLast(i);
+        //});
+        //自动轮播
+        var timer = setInterval(function () {
+            moveNext(i);
+        }, 5000);
+        moveNext = function (n) {
+            if (n == len) {
+                i = -1;
+                $(".slider .slides").animate({ right: "" }, 800);
+            } else {
+                $(".slider .slides").animate({ right: ((n + 1) * 100).toString() + "%" }, 800);
+            }
+            i++;
+        }
+        moveLast = function (n) {
+            if (n == 0) {
+                i = len + 1;
+                $(".slider .slides").animate({ right: (len * 100).toString() + "%" }, 800);
+            } else {
+                $(".slider .slides").animate({ right: ((n - 1) * 100).toString() + "%" }, 800);
+            }
+            i--;
+        }
+        //手机触摸效果
+        var startX, endX, moveX;
+        function touchStart(event) {
+            var touch = event.touches[0];
+            startX = touch.pageX;
+        }
+        function touchMove(event) {
+            var touch = event.touches[0];
+            endX = touch.pageX;
+        }
+        function touchEnd(event) {
+            moveX = startX - endX;
+            if (moveX > 50) {
+                moveNext(i);
+            } else if (moveX < -50) {
+                moveLast(i);
+            }
+        }
+        document.getElementById("slides").addEventListener("touchstart", touchStart, false);
+        document.getElementById("slides").addEventListener("touchmove", touchMove, false);
+        document.getElementById("slides").addEventListener("touchend", touchEnd, false);
+        //transition移动固定宽度，无法自适应
+        // $(".nextpic").click(function(){
+        // if(i==len){
+        //  i=-1;
+        //  $(".slider .slides").css({
+        //  'transition-timing-function':'linear',
+        //  'transition-duration':'800ms',
+        //  'transform':'translateX(0px)'
+        //  })
+        // }else{
+        //  $(".slider .slides").css({
+        //  'transition-timing-function':'linear',
+        //  'transition-duration':'800ms',
+        //  'transform':'translateX(-'+(i+1)*width+'px)'
+        //  })
+        // }
+        // i++;
+        // });
+        // $(".lastpic").click(function(){
+        // if(i==0){
+        //  i=len+1;
+        //  $(".slider .slides").css({
+        //  'transition-timing-function':'linear',
+        //  'transition-duration':'800ms',
+        //  'transform':'translateX(-'+len*width+'px)'
+        //  })
+        // }else{
+        //  $(".slider .slides").css({
+        //  'transition-timing-function':'linear',
+        //  'transition-duration':'800ms',
+        //  'transform':'translateX(-'+(i-1)*width+'px)'
+        //  })
+        // }
+        // i--;
+        // })
+
+    });
+</script>
 

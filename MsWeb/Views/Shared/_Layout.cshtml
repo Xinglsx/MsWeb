@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.cookie.js"></script>
     <link href="~/Content/style.css" type="text/css" rel="stylesheet"/>
     <title>@ViewBag.Title</title>
@@ -38,10 +39,29 @@
         <div class="wechatButton">
             <img src="~/images/wechat/mskjvip888_258.jpg"/>
         </div>
-        <div class="wechatNumber">
+        <div class="wechatNumber sidenav">
             <img src="~/images/wechat/mskjvip888_258.jpg" />
             <p>扫码关注微信公众号<a class="hideWechatNumber">关闭</a></p>
         </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+             function staticNav() {
+              var sidenavHeight = $(".sidenav").height();
+              var winHeight = $(window).height();
+              var browserIE6 = (navigator.userAgent.indexOf("MSIE 6")>=0) ? true : false;
+              if (browserIE6) {
+               $(".sidenav").css({'position' : 'absolute'});
+              } else {
+               $(".sidenav").css({'position' : 'fixed'});
+              }
+             }
+             staticNav();
+             $(window).resize(function () {
+              staticNav();
+             });
+            });
+        </script>
+
 
         <script type="text/javascript">
             $('.wechatButton').on('click', function () {
@@ -55,7 +75,7 @@
             })
         </script>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000080;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,15 +83,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("MSKJ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    <a href="/Home/Index">
+                        <img src="~/images/Base/mskj_image_icon.png" class="navbar-brand"
+                             style="float:left;height:50px;padding:10px 10px;line-height:40px;width:100px;" />
+                    </a>
+                    @*@Html.ActionLink("MSKJ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("闪荐", "GoodsIndex", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("首页", "Index", "Home", new { area = "" }, null)</li>
+                        <li>
+                            @Html.ActionLink("闪荐", "GoodsIndex", "Home", new { area = "" }, null)
+                            @*<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>@Html.ActionLink("推荐商品", "Index", "Coupon", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("上传商品", "UploadCoupon", "Coupon", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("招募令", "Recruit", "Home", new { area = "" }, null)</li>
+                            </ul>*@
+                        </li>
                         <li>@Html.ActionLink("推荐商品", "Index", "Coupon", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("上传商品", "UploadCoupon", "Coupon", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("招募令", "Recruit", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("软件下载","SoftDownload" ,"Home",new { area = ""},null)</li>
+                        <li>@Html.ActionLink("软件下载", "SoftDownload", "Home", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("帮助中心", "Index", "Help", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("更新日志", "UpdateLog", "Home", new { area = "" }, null)</li>
                         <li><a href="http://www.mingshukeji.com.cn:81">博客</a></li>
@@ -79,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div>
             <div class="status-login-register">
                 &nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Register">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Login">登陆</a>
             </div>
@@ -114,5 +146,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

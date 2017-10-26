@@ -265,6 +265,8 @@
     <Content Include="Configs\LoggerConfig.json" />
     <Content Include="Configs\PatchConfig.json" />
     <Content Include="Configs\PluginConfig.json" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\style-H5.css" />
@@ -272,10 +274,14 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="images\sj_guides\image_guide_1.png" />
-    <Content Include="images\sj_guides\image_guide_2.png" />
-    <Content Include="images\sj_guides\image_guide_3.png" />
-    <Content Include="images\sj_guides\image_guide_4.png" />
+    <Content Include="images\Base\index_background.jpg" />
+    <Content Include="images\Base\mskj_image_icon.png" />
+    <Content Include="images\sj_guides\arrow_next.png" />
+    <Content Include="images\sj_guides\arrow_prev.png" />
+    <Content Include="images\sj_guides\image_guide_1.jpg" />
+    <Content Include="images\sj_guides\image_guide_2.jpg" />
+    <Content Include="images\sj_guides\image_guide_3.jpg" />
+    <Content Include="images\sj_guides\image_guide_4.jpg" />
     <Content Include="images\softicon\sj_icon.png" />
     <Content Include="images\softicon\tblm_icon.png" />
     <Content Include="images\wechat\mskjvip888_258.jpg" />

@@ -3,7 +3,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="zh-cn">
+@*<html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
@@ -13,32 +13,51 @@
 
 </head>
 <body>
-    @*<div class="body-style-h5">
-        <div class="app-wrapper">
-            <div id="wrapper" class="app-content">
-                <div id="scroller">
-                    <div class="app-main">
-                        @foreach (var item in @Model)
-                    {
-                            <div class="app-box-hd">@item.Question</div>
-                            <div>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@item.Explain</p>
-                            </div>
-                    }
-                    </div>
+    <div class="container">
+        <div style="margin: 0 auto">
+            @foreach (var item in @Model)
+            {
+                <div style="background-color:#dcdcd9;font-size:18px">@item.Question</div>
+                <div>
+                    <p style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@item.Explain</p>
                 </div>
-            </div>
+            }
         </div>
-    </div>*@
-    <div style="margin: 0 auto">
-        @foreach (var item in @Model)
-        {
-            <div style="background-color:#dcdcd9;font-size:18px">@item.Question</div>
-            <div>
-                <p style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@item.Explain</p>
-            </div>
-        }
     </div>
+</body>
+</html>*@
 
+<html>
+<head>
+    <title>js验证码</title>
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body onload="createCode()">
+    <form id="form1" runat="server" onsubmit="validateCode()">
+        <div>
+            <table border="0" cellspacing="5" cellpadding="5">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a href="#" onclick="createCode()">看不清换一张</a></td>
+                </tr>
+                <tr>
+                    <td>验证码：</td>
+                    <td><input style="float:left;" type="text" id="inputCode" /></td>
+                    <td>请输入验证码</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input id="Button1" onclick="validateCode();" type="button" value="确定" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </form>
 </body>
 </html>
