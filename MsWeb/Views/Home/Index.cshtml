@@ -4,15 +4,15 @@
     padding: 0;
 }
 </style>
-<div style="height:200px;width:100%;margin-top:-8px;">
+@*<div style="height:200px;width:100%;margin-top:-8px;">
     <img src="~/images/Base/index_background.jpg" style="width:100%;"/>
-</div>
-<div class="container slider-show">
+</div>*@
+<div class="slider-show">
     <div id="slider" class="slider">
-        @*//轮播箭头*@
-        @*<p class="lastpic"><img src="~/images/sj_guides/arrow_prev.png" class="img-responsive arrow-size"></p>
-        <p class="nextpic"><img src="~/images/sj_guides/arrow_next.png" class="img-responsive arrow-size"></p>*@
-        @*//轮播图片*@
+        @*轮播箭头*@
+        <p class="lastpic"><img src="~/images/sj_guides/arrow_prev.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
+        <p class="nextpic"><img src="~/images/sj_guides/arrow_next.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
+        @*轮播图片*@
         <ul id="slides" class="slides clearfix">
             <li><img class="responsive" src="~/images/sj_guides/image_guide_1.jpg" alt="暂无图片"></li>
             <li><img class="responsive" src="~/images/sj_guides/image_guide_2.jpg" alt="暂无图片"></li>
@@ -21,8 +21,8 @@
         </ul>
     </div>
 </div>
-<div class="div-center-block" style="max-width:500px;margin-top:-15px;color:red;">
-    <h1>科技引领未来，应用改变生活</h1>
+<div class="container div-center-block" style="max-width:500px;margin-top:-15px;color:red;">
+    <h1>科技引领未来，应用改变现在</h1>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -53,27 +53,27 @@
             "height": "inherit"
         });
         //控制点样式
-        //$(".slider p").css({
-        //    "position": "absolute",
-        //    "z-index": "999",
-        //    "cursor": "pointer"
-        //});
-        //$(".slider .lastpic").css({
-        //    "left": "0",
-        //    "margin-top": "20%"
-        //});
-        //$(".slider .nextpic").css({
-        //    "right": "0",
-        //    "margin-top": "20%"
-        //});
+        $(".slider p").css({
+            "position": "absolute",
+            "z-index": "999",
+            "cursor": "pointer"
+        });
+        $(".slider .lastpic").css({
+            "left": "0",
+            "margin-top": "15%"
+        });
+        $(".slider .nextpic").css({
+            "right": "0",
+            "margin-top": "15%"
+        });
         //animate移动
         var i = 0;
-        //$(".nextpic").click(function(){
-        // moveNext(i);
-        //});
-        //$(".lastpic").click(function(){
-        // moveLast(i);
-        //});
+        $(".nextpic").click(function(){
+         moveNext(i);
+        });
+        $(".lastpic").click(function(){
+         moveLast(i);
+        });
         //自动轮播
         var timer = setInterval(function () {
             moveNext(i);
