@@ -61,6 +61,7 @@
     <Compile Include="IGoodsService.cs" />
     <Compile Include="IQuestionsService.cs" />
     <Compile Include="IUsersService.cs" />
+    <Compile Include="IWechatTokenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

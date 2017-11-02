@@ -136,3 +136,13 @@
 	border-top: 1px dotted #ccc;
 	background: red;
 }
+/*按钮居中显示*/
+.div_bottom{
+    position:absolute;
+    bottom:10px;
+    width:93%;/*100%的话是390，但母容器padding-left了15px,恨到偏右了*/
+}
+.btn-center{
+    margin:0 auto;
+    text-align:center;
+}

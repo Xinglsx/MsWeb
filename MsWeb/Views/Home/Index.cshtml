@@ -1,158 +1,238 @@
-﻿<style type="text/css">
-    *{
-    margin: 0;
-    padding: 0;
-}
-</style>
-@*<div style="height:200px;width:100%;margin-top:-8px;">
-    <img src="~/images/Base/index_background.jpg" style="width:100%;"/>
-</div>*@
-<div class="slider-show">
-    <div id="slider" class="slider">
-        @*轮播箭头*@
-        <p class="lastpic"><img src="~/images/sj_guides/arrow_prev.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
-        <p class="nextpic"><img src="~/images/sj_guides/arrow_next.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
-        @*轮播图片*@
-        <ul id="slides" class="slides clearfix">
-            <li><img class="responsive" src="~/images/sj_guides/image_guide_1.jpg" alt="暂无图片"></li>
-            <li><img class="responsive" src="~/images/sj_guides/image_guide_2.jpg" alt="暂无图片"></li>
-            <li><img class="responsive" src="~/images/sj_guides/image_guide_3.jpg" alt="暂无图片"></li>
-            <li><img class="responsive" src="~/images/sj_guides/image_guide_4.jpg" alt="暂无图片"></li>
-        </ul>
+﻿<html>
+<head>
+    <meta name="description" content="MSKJ,主要提供服务：计算机软件外包，安卓手机APP开发，公司宣传主页开发，产品宣传主页开发，
+          网站SEO，计算机及周边硬件销售，软件培训等等。科技引领未来，应用改变现在！" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    @*<div style="height:200px;width:100%;margin-top:-8px;">
+            <img src="~/images/Base/index_background.jpg" style="width:100%;"/>
+        </div>*@
+    <div class="slider-show">
+        <div id="slider" class="slider">
+            @*轮播箭头*@
+            <p class="lastpic"><img src="~/images/sj_guides/arrow_prev.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
+            <p class="nextpic"><img src="~/images/sj_guides/arrow_next.png" class="img-responsive arrow-size" style="max-width:32px;max-height:32px;"></p>
+            @*轮播图片*@
+            <ul id="slides" class="slides clearfix">
+                <li><img class="responsive" src="~/images/sj_guides/image_guide_1.jpg" alt="暂无图片"></li>
+                <li><img class="responsive" src="~/images/sj_guides/image_guide_2.jpg" alt="暂无图片"></li>
+                <li><img class="responsive" src="~/images/sj_guides/image_guide_3.jpg" alt="暂无图片"></li>
+                <li><img class="responsive" src="~/images/sj_guides/image_guide_4.jpg" alt="暂无图片"></li>
+            </ul>
+        </div>
     </div>
-</div>
-<div class="container div-center-block" style="max-width:500px;margin-top:-15px;color:red;">
-    <h1>科技引领未来，应用改变现在</h1>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var len = $(".slider li").length - 1;
-        //给slider设置样式
-        $(".slider").css({
-            "width": "100%",
-            "height": "inherit",
-            "overflow": "hidden",
-            "display": "inline-block"
-        });
+    <div class="container" style="max-width:1024px;">
+        <h1 class="text-center" style="color:purple;">我们提供的服务</h1>
+        <div class="row">
+            <div class="col-md-4" style="background-color:darkseagreen;height:220px;">
+                <h2 class="text-center"><font color="red">计算机软件开发</font></h2>
+                <h5>计算机软件开发。计算机软件开发。计算机软件开发。计算机软件开发。计算机软件开发。计算机软件开发。计算机软件开发。计算机软件开发。</h5>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/Recruit">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="background-color:burlywood;height:220px;">
+                <h2 class="text-center"><font color="blue">Android手机APP</font></h2>
+                <p>Android手机APP。Android手机APP。Android手机APP。Android手机APP。Android手机APP。Android手机APP。Android手机APP。Android手机APP。</p>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/SjDownload">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="background-color:aquamarine;height:220px;">
+                <h2 class="text-center">公司宣传主页</h2>
+                <p>公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。公司宣传主页。</p>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/Aboutus">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="background-color:burlywood;height:220px;">
+                <h2 class="text-center"><font color="blue">网站SEO</font></h2>
+                <p>网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。网站SEO。</p>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/SjDownload">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="background-color:aquamarine;height:220px;">
+                <h2 class="text-center">计算机硬件销售</h2>
+                <p>计算机硬件销售。计算机硬件销售。计算机硬件销售。计算机硬件销售。计算机硬件销售。计算机硬件销售。计算机硬件销售。计算机硬件销售。</p>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/Aboutus">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4" style="background-color:darkseagreen;height:220px;">
+                <h2 class="text-center"><font color="red">软件培训</font></h2>
+                <h5>软件培训教育。软件培训教育。软件培训教育。软件培训教育。软件培训教育。软件培训教育。软件培训教育。软件培训教育。软件培训教育。</h5>
+                <div class="div_bottom">
+                    <p class="btn-center"><a class="btn btn-default" href="~/Home/Recruit">了解更多 &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        //给ul设置宽度
-        $(".slides").css({
-            "position": "relative",
-            "width": ((len + 1) * 100).toString() + "%",
-            "margin": "0",
-            "padding": "0"
-        });
-        //给li设置百分比宽度
-        $(".slides li").css({
-            "width": (100 / (len + 1)).toString() + "%",
-            "float": "left"
-        });
-        //给图片设置宽度
-        $(".responsive").css({
-            "width": "100%",
-            "height": "inherit"
-        });
-        //控制点样式
-        $(".slider p").css({
-            "position": "absolute",
-            "z-index": "999",
-            "cursor": "pointer"
-        });
-        $(".slider .lastpic").css({
-            "left": "0",
-            "margin-top": "15%"
-        });
-        $(".slider .nextpic").css({
-            "right": "0",
-            "margin-top": "15%"
-        });
-        //animate移动
-        var i = 0;
-        $(".nextpic").click(function(){
-         moveNext(i);
-        });
-        $(".lastpic").click(function(){
-         moveLast(i);
-        });
-        //自动轮播
-        var timer = setInterval(function () {
-            moveNext(i);
-        }, 5000);
-        moveNext = function (n) {
-            if (n == len) {
-                i = -1;
-                $(".slider .slides").animate({ right: "" }, 800);
-            } else {
-                $(".slider .slides").animate({ right: ((n + 1) * 100).toString() + "%" }, 800);
-            }
-            i++;
-        }
-        moveLast = function (n) {
-            if (n == 0) {
-                i = len + 1;
-                $(".slider .slides").animate({ right: (len * 100).toString() + "%" }, 800);
-            } else {
-                $(".slider .slides").animate({ right: ((n - 1) * 100).toString() + "%" }, 800);
-            }
-            i--;
-        }
-        //手机触摸效果
-        var startX, endX, moveX;
-        function touchStart(event) {
-            var touch = event.touches[0];
-            startX = touch.pageX;
-        }
-        function touchMove(event) {
-            var touch = event.touches[0];
-            endX = touch.pageX;
-        }
-        function touchEnd(event) {
-            moveX = startX - endX;
-            if (moveX > 50) {
+    <div style="background-color:chartreuse;margin-top:50px;padding-bottom:50px;">
+        <div class="container">
+            <h1 class="text-center" style="color:purple;">我们的口号</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="text-center">目标</h3>
+                    <div align="center"><img class="text-center" src="~/images/sj_guides/image_guide_1.jpg" style="width:200px;height:200px;" /></div>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="text-center">计划</h3>
+                    <div align="center"><img class="text-center" src="~/images/sj_guides/image_guide_1.jpg" style="width:200px;height:200px;" /></div>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="text-center">行动</h3>
+                    <div align="center"><img src="~/images/sj_guides/image_guide_1.jpg" style="width:200px;height:200px;" /></div>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="text-center">结果</h3>
+                    <div align="center"><img src="~/images/sj_guides/image_guide_1.jpg" style="width:200px;height:200px;" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="color:red;">
+        <h1 class="text-center">科技引领未来，应用改变现在</h1>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var len = $(".slider li").length - 1;
+            //给slider设置样式
+            $(".slider").css({
+                "width": "100%",
+                "height": "inherit",
+                "overflow": "hidden",
+                "display": "inline-block"
+            });
+
+            //给ul设置宽度
+            $(".slides").css({
+                "position": "relative",
+                "width": ((len + 1) * 100).toString() + "%",
+                "margin": "0",
+                "padding": "0"
+            });
+            //给li设置百分比宽度
+            $(".slides li").css({
+                "width": (100 / (len + 1)).toString() + "%",
+                "float": "left"
+            });
+            //给图片设置宽度
+            $(".responsive").css({
+                "width": "100%",
+                "height": "inherit"
+            });
+            //控制点样式
+            $(".slider p").css({
+                "position": "absolute",
+                "z-index": "999",
+                "cursor": "pointer"
+            });
+            $(".slider .lastpic").css({
+                "left": "0",
+                "margin-top": "15%"
+            });
+            $(".slider .nextpic").css({
+                "right": "0",
+                "margin-top": "15%"
+            });
+            //animate移动
+            var i = 0;
+            $(".nextpic").click(function () {
                 moveNext(i);
-            } else if (moveX < -50) {
+            });
+            $(".lastpic").click(function () {
                 moveLast(i);
+            });
+            //自动轮播
+            var timer = setInterval(function () {
+                moveNext(i);
+            }, 5000);
+            moveNext = function (n) {
+                if (n == len) {
+                    i = -1;
+                    $(".slider .slides").animate({ right: "" }, 800);
+                } else {
+                    $(".slider .slides").animate({ right: ((n + 1) * 100).toString() + "%" }, 800);
+                }
+                i++;
             }
-        }
-        document.getElementById("slides").addEventListener("touchstart", touchStart, false);
-        document.getElementById("slides").addEventListener("touchmove", touchMove, false);
-        document.getElementById("slides").addEventListener("touchend", touchEnd, false);
-        //transition移动固定宽度，无法自适应
-        // $(".nextpic").click(function(){
-        // if(i==len){
-        //  i=-1;
-        //  $(".slider .slides").css({
-        //  'transition-timing-function':'linear',
-        //  'transition-duration':'800ms',
-        //  'transform':'translateX(0px)'
-        //  })
-        // }else{
-        //  $(".slider .slides").css({
-        //  'transition-timing-function':'linear',
-        //  'transition-duration':'800ms',
-        //  'transform':'translateX(-'+(i+1)*width+'px)'
-        //  })
-        // }
-        // i++;
-        // });
-        // $(".lastpic").click(function(){
-        // if(i==0){
-        //  i=len+1;
-        //  $(".slider .slides").css({
-        //  'transition-timing-function':'linear',
-        //  'transition-duration':'800ms',
-        //  'transform':'translateX(-'+len*width+'px)'
-        //  })
-        // }else{
-        //  $(".slider .slides").css({
-        //  'transition-timing-function':'linear',
-        //  'transition-duration':'800ms',
-        //  'transform':'translateX(-'+(i-1)*width+'px)'
-        //  })
-        // }
-        // i--;
-        // })
+            moveLast = function (n) {
+                if (n == 0) {
+                    i = len + 1;
+                    $(".slider .slides").animate({ right: (len * 100).toString() + "%" }, 800);
+                } else {
+                    $(".slider .slides").animate({ right: ((n - 1) * 100).toString() + "%" }, 800);
+                }
+                i--;
+            }
+            //手机触摸效果
+            var startX, endX, moveX;
+            function touchStart(event) {
+                var touch = event.touches[0];
+                startX = touch.pageX;
+            }
+            function touchMove(event) {
+                var touch = event.touches[0];
+                endX = touch.pageX;
+            }
+            function touchEnd(event) {
+                moveX = startX - endX;
+                if (moveX > 50) {
+                    moveNext(i);
+                } else if (moveX < -50) {
+                    moveLast(i);
+                }
+            }
+            document.getElementById("slides").addEventListener("touchstart", touchStart, false);
+            document.getElementById("slides").addEventListener("touchmove", touchMove, false);
+            document.getElementById("slides").addEventListener("touchend", touchEnd, false);
+            //transition移动固定宽度，无法自适应
+            // $(".nextpic").click(function(){
+            // if(i==len){
+            //  i=-1;
+            //  $(".slider .slides").css({
+            //  'transition-timing-function':'linear',
+            //  'transition-duration':'800ms',
+            //  'transform':'translateX(0px)'
+            //  })
+            // }else{
+            //  $(".slider .slides").css({
+            //  'transition-timing-function':'linear',
+            //  'transition-duration':'800ms',
+            //  'transform':'translateX(-'+(i+1)*width+'px)'
+            //  })
+            // }
+            // i++;
+            // });
+            // $(".lastpic").click(function(){
+            // if(i==0){
+            //  i=len+1;
+            //  $(".slider .slides").css({
+            //  'transition-timing-function':'linear',
+            //  'transition-duration':'800ms',
+            //  'transform':'translateX(-'+len*width+'px)'
+            //  })
+            // }else{
+            //  $(".slider .slides").css({
+            //  'transition-timing-function':'linear',
+            //  'transition-duration':'800ms',
+            //  'transform':'translateX(-'+(i-1)*width+'px)'
+            //  })
+            // }
+            // i--;
+            // })
 
-    });
-</script>
-
+        });
+    </script>
+</body>
+</html>

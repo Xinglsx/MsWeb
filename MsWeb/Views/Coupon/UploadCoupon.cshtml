@@ -94,7 +94,7 @@
             type: "post",
             success: function (rst) {
                 if (rst.code < 0) {
-                    $('.uploadCouponMain').html('<h3>对不起，您没有上传商品的权限！请先申请成为特约用户，谢谢！</h3>');
+                    $('.uploadCouponMain').html('<h3>对不起，您没有上传商品的权限！请先<a href="Home/Recruit">申请</a>成为特约用户，谢谢！</h3>');
                 }
             }
         })

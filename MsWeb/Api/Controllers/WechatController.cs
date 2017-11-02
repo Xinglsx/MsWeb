@@ -1,63 +1,52 @@
 ﻿using MsWeb.Core.Utils;
 using MsWeb.DataObjects;
+using MsWeb.Wechat;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Xml;
 
 namespace MsWeb.Api.Controllers
 {
-    public class WechatController : System.Web.Http.ApiController
+    public class WechatController : Controller
     {
-        private readonly string sToken = "mskj2017";//与微信公众账号后台的Token设置保持一致，区分大小写。
-        private readonly string sAppID = "wx231cad5b531e5d35";
-        private readonly string sEncodingAESKey = "5gMwyIaHqwbJwGgoiwpu88ltq87M1wi1eNbTm9btnAJ";
         [HttpGet]
-        public HttpResponseMessage Get(string signature, string timestamp, string nonce, string echostr)
+        public void Get(string signature, string timestamp, string nonce, string echostr)
         {
-            string[] ArrTmp = { sToken, timestamp, nonce };
-            Array.Sort(ArrTmp);
-            string tmpStr = string.Join("", ArrTmp);
-            var result = FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1").ToLower();
-
-            if (signature.Equals(result))
+            if (WechatMessageUtil.CheckToken(signature, timestamp, nonce, echostr))
             {
-                return new HttpResponseMessage()
-                {
-                    Content = new StringContent(echostr, Encoding.GetEncoding("UTF-8"), "application/x-www-form-urlencoded")
-                };
+                Response.Write(echostr);
+                Response.End();
             }
             else
             {
-                return new HttpResponseMessage()
-                {
-                    Content = new StringContent("Error!", Encoding.GetEncoding("UTF-8"), "application/x-www-form-urlencoded")
-                };
+                Response.Write("Error!");
+                Response.End();
             }
         }
-
-        //获取access_token:https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx231cad5b531e5d35&secret=d630dbef26551beabce53477b37dfcfb
-        private string access_token = "vAM8PhhZh1dgKCnSBtBgL8VVza2eUcaVP6wEnFlbpP5VnlPoukJpJ-D-RY0D-vZSVwIiF652agEefGuiTEGRDD9eZ2W3pE7Y0I5QWgT3W1aVq1rVQ1Xp0ULrYk3tK3BdNNIfAAACCX";
-
         [HttpPost]
-        public HttpResponseMessage ResponseMsg(string Token,string weixin)
+        public void Get()
         {
-
-
-            return new HttpResponseMessage()
-            {
-                Content = new StringContent("测试成功了", Encoding.GetEncoding("UTF-8"), "application/x-www-form-urlencoded")
-            };
+            string weixin = "";//获取xml数据
+            weixin = PostInput();//自定义方法，获取xml数据
+            LogUtil.WebLog("用户发送消息:" + weixin);
+            Response.Write(WechatMessageUtil.ProcessMessage(weixin));
+            Response.End();
         }
 
+        private string PostInput()/// 获取post请求数据
+        {
+            Stream s = Request.InputStream;
+            byte[] b = new byte[s.Length];
+            s.Read(b, 0, (int)s.Length);
+            return Encoding.UTF8.GetString(b);
+        }
     }
 
-    public class strApiModel
-    {
-        public string weixin;
-    }
 }

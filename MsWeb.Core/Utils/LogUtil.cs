@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using NLog;
 
 namespace MsWeb.Core.Utils
 {
     public static class LogUtil
     {
         #region Private Fields
-        private static readonly log4net.ILog webLog = log4net.LogManager.GetLogger("WebLog.Logger");
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region WebLog
@@ -17,7 +15,7 @@ namespace MsWeb.Core.Utils
             if (null == obj)
                 return;
 
-            webLog.Info(obj);
+            Logger.Info(obj);
         }
 
         /// <summary>
@@ -29,7 +27,7 @@ namespace MsWeb.Core.Utils
             if (null == ex)
                 return;
 
-            webLog.Error(ex.Message, ex);
+            Logger.Error(ex.Message, ex);
         }
 
         /// <summary>
@@ -42,7 +40,7 @@ namespace MsWeb.Core.Utils
             if (null == ex)
                 return;
 
-            webLog.Error(logFlag + ex.Message, ex);
+            Logger.Error(logFlag + ex.Message, ex);
         }
         #endregion
 

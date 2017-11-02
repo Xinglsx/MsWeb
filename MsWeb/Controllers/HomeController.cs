@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MsWeb.Core.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,7 +23,7 @@ namespace MsWeb.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "MSKJ";
-
+            
             return View();
         }
 

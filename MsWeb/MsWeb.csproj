@@ -287,6 +287,9 @@
     <Content Include="images\wechat\mskjvip888_258.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="NLog.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\MsWeb.pubxml" />
     <None Include="Properties\PublishProfiles\WebSite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -352,6 +355,10 @@
     <ProjectReference Include="..\MsWeb.Services\MsWeb.Services.csproj">
       <Project>{0add3dd0-13bb-483e-9d4d-5bd855963fc3}</Project>
       <Name>MsWeb.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MsWeb.Wechat\MsWeb.Wechat.csproj">
+      <Project>{47e118f0-a39d-4c2b-9d2e-efe1b2beef79}</Project>
+      <Name>MsWeb.Wechat</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.Services", "MsWeb.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.Core", "MsWeb.Core\MsWeb.Core.csproj", "{0443C04B-AEB4-4565-A125-597759C71DDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.Wechat", "MsWeb.Wechat\MsWeb.Wechat.csproj", "{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{0443C04B-AEB4-4565-A125-597759C71DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0443C04B-AEB4-4565-A125-597759C71DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0443C04B-AEB4-4565-A125-597759C71DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

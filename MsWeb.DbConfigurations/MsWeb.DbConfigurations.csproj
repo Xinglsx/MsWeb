@@ -60,6 +60,7 @@
     <Compile Include="UserloginrecordMap.cs" />
     <Compile Include="UsersMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WechatTokenMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.Domains\MsWeb.Domains.csproj">
