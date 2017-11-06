@@ -336,6 +336,10 @@
     <Content Include="Views\Coupon\UploadCoupon.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">
+      <Project>{d47849a6-5f26-4bce-ae64-31c2f88d69c1}</Project>
+      <Name>MsWeb.BaiduAI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MsWeb.Core\MsWeb.Core.csproj">
       <Project>{0443c04b-aeb4-4565-a125-597759c71ddf}</Project>
       <Name>MsWeb.Core</Name>
@@ -343,6 +347,10 @@
     <ProjectReference Include="..\MsWeb.DataObjects\MsWeb.DataObjects.csproj">
       <Project>{86d4db7b-a2b9-454c-965b-8b92716f4dab}</Project>
       <Name>MsWeb.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MsWeb.DbConfigurations\MsWeb.DbConfigurations.csproj">
+      <Project>{7afaf99f-8fc5-4b1c-976a-5c0a399ecd4d}</Project>
+      <Name>MsWeb.DbConfigurations</Name>
     </ProjectReference>
     <ProjectReference Include="..\MsWeb.Domains\MsWeb.Domains.csproj">
       <Project>{a53adfc8-6456-4dcc-89a2-33bbb5fd5e70}</Project>
@@ -365,7 +373,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
@@ -407,7 +414,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\TensorFlowSharp.1.3.1-pre1\build\TensorFlowSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\TensorFlowSharp.1.3.1-pre1\build\TensorFlowSharp.targets'))" />
   </Target>
+  <Import Project="..\packages\TensorFlowSharp.1.3.1-pre1\build\TensorFlowSharp.targets" Condition="Exists('..\packages\TensorFlowSharp.1.3.1-pre1\build\TensorFlowSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

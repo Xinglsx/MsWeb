@@ -29,13 +29,15 @@ namespace MsWeb.Services
             return await Aspect.Task(async () =>
             {
                 ReturnResult<WechatTokenModel> result = new ReturnResult<WechatTokenModel>();
-                var token = await this.GetOne();
+                //var token = await this.GetOne();//获取更新时间小于两小时的数据
+                DateTime time2 = DateTime.Now.AddHours(-2);
+                var token = await this.GetOne(p => p.updatetime > time2);//获取更新时间小于两小时的数据
                 result.code = 1;
                 result.data = token;
                 return result;
             })
-           .WithLog("获取本地已存在的微信Token.")
-           .Execute();
+            .WithLog("获取微信Token.")
+            .Execute();
         }
         /// <summary>
         /// 更新微信Token
@@ -49,10 +51,11 @@ namespace MsWeb.Services
             {
                 ReturnResult<bool> result = new ReturnResult<bool>();
                 var token = await this.GetOne();
+                //var token = await this.GetOne(p => p.updatetime < DateTime.Now.AddHours(2));
                 //没有则新增
-                if(token == null || string.IsNullOrEmpty(token.ID))
+                if (token == null || string.IsNullOrEmpty(token.ID))
                 {
-                    result.data = await this.Add(saveToken);
+                    result.data = this.Add(saveToken).Result;
                     if (result.data)
                     {
                         result.code = 1;
@@ -87,10 +90,10 @@ namespace MsWeb.Services
                     result.code = -103;
                     result.message = "用户信息更新失败！";
                 }
-                return result;
+                return result;  
             })
-           .WithLog("更新用户信息.")
-           .Execute();
+            .WithLog("保存微信Token.")
+            .Execute();
         }
     }
 }

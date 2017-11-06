@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.Core", "MsWeb.Core\Ms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.Wechat", "MsWeb.Wechat\MsWeb.Wechat.csproj", "{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsWeb.BaiduAI", "MsWeb.BaiduAI\MsWeb.BaiduAI.csproj", "{D47849A6-5F26-4BCE-AE64-31C2F88D69C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E118F0-A39D-4C2B-9D2E-EFE1B2BEEF79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D47849A6-5F26-4BCE-AE64-31C2F88D69C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47849A6-5F26-4BCE-AE64-31C2F88D69C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47849A6-5F26-4BCE-AE64-31C2F88D69C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47849A6-5F26-4BCE-AE64-31C2F88D69C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

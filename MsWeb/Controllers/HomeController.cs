@@ -1,4 +1,6 @@
-﻿using MsWeb.Core.Utils;
+﻿using MsWeb.BaiduAI;
+using MsWeb.Core.Utils;
+using MsWeb.Wechat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace MsWeb.Controllers
         八、return View("~/Views/Home/Index.aspx");//这种方法是写全路径,直接显示页面,不经过Controller方法
         九、return View();//直接显示页面,不经过Controller方法
         */
-        public ActionResult Index()
+        public async System.Threading.Tasks.Task<ActionResult> Index()
         {
             ViewBag.Title = "MSKJ";
             
