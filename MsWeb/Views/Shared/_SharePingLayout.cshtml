@@ -89,28 +89,22 @@
                         <img src="~/images/Base/mskj_image_icon.png" class="navbar-brand"
                              style="float:left;height:50px;padding:10px 10px;line-height:40px;width:100px;" />
                     </a>*@
-                    @Html.ActionLink("MSKJ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("闪荐-SharePing", "Index", "SharePing", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav menulevel2">
-                        <li>@Html.ActionLink("首页", "Index", "Home", new { area = "" }, null)</li>
-                        <li>
-                            @Html.ActionLink("产品中心", "ProductCenter", "Home", new { area = "" }, null)
-                            <ul class="navbar-nav dropdown-menu menulevel2-ul">
-                                <li>@Html.ActionLink("闪荐-SharePing", "Index", "SharePing", new { area = "" }, null)</li>
-                            </ul>
-                        </li>
-                        <li>@Html.ActionLink("更新日志", "UpdateLog", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("关于我们", "AboutUs", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("首页", "Index", "SharePing", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("产品简介", "AboutSharePing", "SharePing", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("产品下载", "SoftDownload", "SharePing", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("帮助中心", "Help", "SharePing", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("上传商品", "UploadCoupon", "SharePing", new { area = "" }, null)</li>
                     </ul>
                 </div>
             </div>
         </div>
-        @RenderBody()
-        @*官网取消登录和注册的功能，只做公司展示
-            <div>
+        <div>
             <div class="status-login-register">
-                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Register">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Home/Login">登陆</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/SharePing/Register">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/SharePing/Login">登陆</a>
             </div>
             @RenderBody()
         </div>
@@ -119,20 +113,20 @@
                 localStorage.userid = "";
                 document.write(localStorage.userid);
                 setCookie("isLogin", false, 10, '/');
-                location.href = "/Home";
+                location.href = "/SharePing";
             }
 
             var isLogin = getCookie('isLogin');
             if (isLogin == "true") {
                 $(".status-login-register").html("<p>&nbsp;&nbsp;<a href=''>" + localStorage.username + "</a>，欢迎您！  <a onclick='userExit()' href='#'>退出</a></p>");
             }
-        </script>*@
+        </script>
     </main>
     <footer>
         <hr />
         <p class="foot">
             友情链接：
-            <a href="http://www.mingshukeji.com.cn/SharePing">闪荐-SharePing</a>&nbsp;&nbsp;
+            <a href="http://www.mingshukeji.com.cn/Home">MSKJ</a>&nbsp;&nbsp;
             <a href="http://www.baidu.com">百度</a>&nbsp;&nbsp;
             <a href="http://www.mingshukeji.com.cn:81">MS博客</a>&nbsp;&nbsp;
             <a href="https://s.click.taobao.com/t?e=m%3D2%26s%3DcbSc72dVoIgcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAptAI%2B2VcbmHHHfTsOG6BL5%2FnnwDmmNqHK%2FD67FE%2B0F3%2Bw%2FcV9ExfYJ2mzPzKXazMBmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy8CZuZoOOkzXFxfvOyje0ynomfkDJRs%2BhU%3D">阿里云</a>&nbsp;&nbsp;

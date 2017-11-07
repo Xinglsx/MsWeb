@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_SharePingLayout.cshtml";
 }
 
 <script src="~/Scripts/uploadCoupon.js" type="text/javascript"></script>
@@ -75,8 +75,8 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default btn-saveDraft" id="btnSaveDraft" onclick="return savrRecommandGoods()">保存草稿</button>
-                    <button type="submit" class="btn btn-default btn-submitAudit" id="btnSubmitAudit" onclick="return savrRecommandGoods()">提交审核</button>
+                    <button type="submit" class="btn btn-default btn-saveDraft" id="btnSaveDraft" onclick="return saveRecommandGoods()">保存草稿</button>
+                    <button type="submit" class="btn btn-default btn-submitAudit" id="btnSubmitAudit" onclick="return saveRecommandGoods()">提交审核</button>
                 </div>
             </div>
         </form>
@@ -84,20 +84,25 @@
 </div>
 <script type="text/javascript">
     //检测用户是否有上传商品的权限
-    var isLogin = getCookie('isLogin').toString();
-    if (isLogin != "true") {
-        $('.uploadCouponMain').html('<h3>对不起，您还没有登录，请登录后再试，谢谢！</h3>');
+    if (getCookie('isLogin') != null){
+        var isLogin = getCookie('isLogin').toString();
+        if (isLogin != "true") {
+            $('.uploadCouponMain').html('<h3>对不起，您还没有登录，请登录后再试，谢谢！</h3>');
+        }
+        else {
+            $.ajax({
+                url: "/api/Users/ValidateUploadCoupon?userid=" + localStorage.usercode,
+                type: "post",
+                success: function (rst) {
+                    if (rst.code < 0) {
+                        $('.uploadCouponMain').html('<h3>对不起，您没有上传商品的权限！</h3>');
+                    }
+                }
+            })
+        }
     }
     else {
-        $.ajax({
-            url: "/api/Users/ValidateUploadCoupon?userid=" + localStorage.usercode,
-            type: "post",
-            success: function (rst) {
-                if (rst.code < 0) {
-                    $('.uploadCouponMain').html('<h3>对不起，您没有上传商品的权限！请先<a href="Home/Recruit">申请</a>成为特约用户，谢谢！</h3>');
-                }
-            }
-        })
+        $('.uploadCouponMain').html('<h3>对不起，您还没有登录，请登录后再试，谢谢！</h3>');
     }
 
 </script>

@@ -30,7 +30,7 @@
 <script type="text/javascript">
     var isLogin = getCookie('isLogin');
     if (isLogin == "true") {
-        location.href = "/Home";
+        location.href = "/SharePing";
     }
     var code;
     createCode();
@@ -66,7 +66,7 @@
                         localStorage.username = rst.data.nickname;
                         document.write(localStorage.userid);
                         setCookie("isLogin", true, 10, '/');
-                        location.href = "/Home";
+                        location.href = "/SharePing";
                     } else {
                         alert(rst.message);
                         createCode();

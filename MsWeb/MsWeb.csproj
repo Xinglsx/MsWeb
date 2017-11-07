@@ -239,11 +239,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GoodsController.cs" />
-    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Api\Controllers\RecommandGoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\CouponController.cs" />
+    <Compile Include="Controllers\SharePingController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,19 +319,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Recruit.cshtml" />
+    <Content Include="Views\SharePing\Recruit.cshtml" />
     <Content Include="Views\Home\Aboutus.cshtml" />
-    <Content Include="Views\Goods\Index.cshtml" />
-    <Content Include="Views\Home\GoodsIndex.cshtml" />
-    <Content Include="Views\Home\SjDownload.cshtml" />
-    <Content Include="Views\Home\SoftDownload.cshtml" />
-    <Content Include="Views\Coupon\Index.cshtml" />
-    <Content Include="Views\Help\Index.cshtml" />
-    <Content Include="Views\Coupon\FindCoupon.cshtml" />
+    <Content Include="Views\SharePing\GetGoods.cshtml" />
+    <Content Include="Views\SharePing\AboutSharePing.cshtml" />
+    <Content Include="Views\SharePing\SjDownload.cshtml" />
+    <Content Include="Views\SharePing\SoftDownload.cshtml" />
+    <Content Include="Views\SharePing\Index.cshtml" />
+    <Content Include="Views\SharePing\Help.cshtml" />
+    <Content Include="Views\SharePing\FindCoupon.cshtml" />
     <Content Include="Views\Home\UpdateLog.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Coupon\UploadCoupon.cshtml" />
+    <Content Include="Views\SharePing\Login.cshtml" />
+    <Content Include="Views\SharePing\Register.cshtml" />
+    <Content Include="Views\SharePing\UploadCoupon.cshtml" />
+    <Content Include="Views\Shared\_SharePingLayout.cshtml" />
+    <Content Include="Views\Home\ProductCenter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">
@@ -378,7 +378,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\ScriptPatchs\V201709\Goods\" />
-    <Folder Include="Views\Common\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

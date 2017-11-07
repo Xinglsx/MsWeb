@@ -109,6 +109,10 @@ namespace MsWeb.Services
                     goodsInfo.image = ImageUtil.StrToUri(goodsInfo.image, goodsInfo.ID + ".jpg");
                     goodsInfo.buyimage = ImageUtil.StrToUri(goodsInfo.buyimage, goodsInfo.ID + "_buy.jpg");
                     goodsInfo.recommendtime = DateTime.Now;
+                    if(goodsInfo.state == 2)
+                    {
+                        goodsInfo.audittime = DateTime.Now;
+                    }
                     result.data = await this.Add(goodsInfo);
                     if (result.data)
                     {

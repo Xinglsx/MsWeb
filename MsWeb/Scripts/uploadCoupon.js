@@ -35,7 +35,7 @@ function analysisShareText() {
     return false;
 }
 //保存草稿功能实现
-function savrRecommandGoods() {
+function saveRecommandGoods() {
     var imageBase64 = $("#showImage")[0].src.toString();
     imageBase64 = imageBase64.substring(imageBase64.indexOf("base64,")+7, imageBase64.length);
     var data = {
