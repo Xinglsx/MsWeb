@@ -241,6 +241,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Api\Controllers\RecommandGoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductServiceController.cs" />
+    <Compile Include="Controllers\SharePageController.cs" />
     <Compile Include="Controllers\SharePingController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -272,6 +274,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\Base\image_redpaper.jpg" />
     <Content Include="images\Base\index_background.jpg" />
     <Content Include="images\Base\mskj_image_icon.png" />
     <Content Include="images\sj_guides\arrow_next.png" />
@@ -334,6 +337,15 @@
     <Content Include="Views\SharePing\UploadCoupon.cshtml" />
     <Content Include="Views\Shared\_SharePingLayout.cshtml" />
     <Content Include="Views\Home\ProductCenter.cshtml" />
+    <Content Include="Views\SharePage\Index.cshtml" />
+    <Content Include="Views\SharePage\SingleGoods.cshtml" />
+    <Content Include="Views\ProductService\Index.cshtml" />
+    <Content Include="Views\ProductService\Training.cshtml" />
+    <Content Include="Views\ProductService\Software.cshtml" />
+    <Content Include="Views\ProductService\AndroidApp.cshtml" />
+    <Content Include="Views\ProductService\WebSiteSEO.cshtml" />
+    <Content Include="Views\ProductService\WebSite.cshtml" />
+    <Content Include="Views\ProductService\Hardware.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">

@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/_SharePingLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" href="images/icon_114.png" />
+    <script type="text/javascript" src="~/Scripts/qrcode.js"></script>
+
+</head>
+<body>
+    <div class="dialog">
+        <div id="qrcodeImg" class="img"></div>
+        <div class="textd">
+            <p class="tips-opentaobao">打开手机淘宝，扫描二维码即可领取优惠券。</p>
+            <p id="pHide">点击任意地方消失,30秒后自动隐藏！</p>
+        </div>
+    </div>
+    <div class="container main">
+    </div>
+    <script type="text/javascript">
+        var x = 31;
+        var qrcodeImg = new QRCode(document.getElementById("qrcodeImg"), {
+            width: 300,
+            height: 300,
+        });
+        function go() {
+            if ($(".dialog").is(":visible")) {
+                x--;
+                if (x >= 0) {
+                    document.getElementById("pHide").innerHTML = "点击任意地方消失," + x + "秒后自动消失！";
+                } else {
+                    $(".dialog").hide();
+                    x = 31;
+                }
+            }
+        }
+        onload = function () {
+            setInterval(go, 1000);
+        }
+        $('.dialog').on('click', function (e) {
+            $(".dialog").hide();
+            x = 31;
+        })
+
+        if (location.search.length > 4) {
+            var id = location.search.substring(4, location.search.length);
+            $.getJSON("http://www.mingshukeji.com.cn/api/RecommandGoods/GetGoodsInfo?id=" + id).success(function (data) {
+                $(".main").html("<div class='col-md-3 parentDiv'>"
+                        + "<p><a class='linkA' href='" + data.data.link + "'><img src='" + data.data.image + "' width='280' height='200'/></a></p>"
+                    + "<p width='280'>" + data.data.description + "</p>"
+                    + "<p>现价：<font color='red'>" + data.data.price + "</font>&nbsp;&nbsp;<s>原价：" + data.data.oldprice + "</s></p>"
+                    + "<p>推荐时间:<font color='blue'>" + data.data.recommendtime + "</font></p>"
+                    + "<p><a class='btn btn-default' href='" + data.data.link + "'>点击领取优惠券</a>&nbsp;&nbsp;<a class='btn btn-default btnQ' img_link='" + data.data.image + "' data_link='" + data.data.link + "'>显示二维码</a></p>"
+                    +"<p>或者复制后面这串代码，"+data.data.command+",然后打开手机淘宝即可领取！</p>"
+                    + "<br></div>");
+                $('.btnQ').on('click', function (e) {
+                    //JS生成二维码，并且显示在悬浮DIV中
+                    var goodsLink = $(this).attr('data_link');
+                    qrcodeImg.makeCode(goodsLink);
+
+                    document.getElementById("pHide").innerHTML = "点击任意地方消失,30秒后自动消失！"
+                    $(".dialog").show();
+                });
+            })
+        }
+    </script>
+</body>
+</html>

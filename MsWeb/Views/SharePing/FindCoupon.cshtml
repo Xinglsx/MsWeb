@@ -81,7 +81,7 @@
             }
             $(".btnSearch").on('click', function () {
                 var input = $('.inputSearch').val();
-                $.getJSON("/api/Tbk/GetCouponList?q=" + input + "&pageNo=1&pageSize=24").success(function (data) {
+                $.getJSON("/api/Tbk/GetCouponList?q=" + input + "&pageNo=1&pageSize=40").success(function (data) {
                     $(".main").html("")
                     $.each(data.data, function (i, item) {
                         $(".main").append("<div class='col-md-3'>"

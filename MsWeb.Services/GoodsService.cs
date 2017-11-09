@@ -175,5 +175,32 @@ namespace MsWeb.Services
            .WithLog("审核商品信息.")
            .Execute();
         }
+
+        /// <summary>
+        /// 通过商品ID获取商品详细信息
+        /// </summary>
+        /// <param name="id">商品主键</param>
+        /// <returns></returns>
+        public async Task<ReturnResult<GoodsModel>> GetGoodsInfo(string id)
+        {
+            return await Aspect.Task<ReturnResult<GoodsModel>>(async () =>
+            {
+                ReturnResult<GoodsModel> result = new ReturnResult<GoodsModel>();
+
+                GoodsModel goods = await this.GetOne(p => p.ID == id);
+
+                if (goods == null || string.IsNullOrEmpty(goods.ID))
+                {
+                    result.code = -105;
+                    result.message = "打到不指定商品。";
+                    return result;
+                }
+                result.code = 1;
+                result.data = goods;
+                return result;
+            })
+            .WithLog("获取商品列表")
+            .Execute();
+        }
     }
 }

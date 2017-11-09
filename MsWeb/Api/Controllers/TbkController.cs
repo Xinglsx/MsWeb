@@ -7,6 +7,7 @@ using Top.Api.Request;
 using Top.Api.Response;
 using System.Web.Mvc;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace MsWeb.Controllers
 {
@@ -162,6 +163,63 @@ namespace MsWeb.Controllers
             TbkDgItemCouponGetResponse response = client.Execute(req);
 
             return response.Body;
+        }
+
+        [HttpGet]
+        public ReturnResult<string> GetRedPaperCommand(string commandKey)
+        {
+            ReturnResult<string> result = new ReturnResult<string>();
+            switch (commandKey)
+            {
+                case "tbkRedPaper":
+                    if (DateTime.Now <= new DateTime(2017, 11, 11, 22, 59, 59))
+                    {
+                        result.data = ConfigurationManager.AppSettings["tbkRedPaper"] ?? "";
+                        if("".Equals(result.data))
+                        {
+                            result.code = -1;
+                            result.message = "对不起，红包已经不在了！";
+                        }
+                        else
+                        {
+                            result.code = 1;
+                        }
+                    }
+                    else
+                    {
+                        result.code = -1;
+                        result.data = "";
+                        result.message = "对不起，您来晚了，双十一红包发放时间已过！";
+                    }
+                    break;
+                case "alipayRedPaper":
+                    if (DateTime.Now <= new DateTime(2017, 11, 30, 23, 59, 59))
+                    {
+                        result.data = ConfigurationManager.AppSettings["alipayRedPaper"] ?? "";
+                        if ("".Equals(result.data))
+                        {
+                            result.code = -1;
+                            result.message = "对不起，红包已经不在了！";
+                        }
+                        else
+                        {
+                            result.code = 1;
+                        }
+                    }
+                    else
+                    {
+                        result.code = -1;
+                        result.data = "";
+                        result.message = "对不起，您来晚了，支付红包发放时间已过！";
+                    }
+                    break;
+                default:
+                    result.code = -1;
+                    result.data = "";
+                    result.message = "对不起，没有找到相关红包，活动可能已经下线了！";
+                    break;
+            }
+            return result;
         }
     }
 }

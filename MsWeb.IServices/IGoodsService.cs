@@ -28,5 +28,11 @@ namespace MsWeb.IServices
         /// <param name="userInfo">待更新用户信息</param>
         /// <returns></returns>
         Task<ReturnResult<bool>> AuditGoodsInfo(GoodsModel goodsInfo);
+        /// <summary>
+        /// 通过商品ID获取商品详细信息
+        /// </summary>
+        /// <param name="id">商品主键</param>
+        /// <returns></returns>
+        Task<ReturnResult<GoodsModel>> GetGoodsInfo(string id);
     }
 }

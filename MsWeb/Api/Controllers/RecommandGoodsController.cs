@@ -64,7 +64,11 @@ namespace MsWeb.Api.Controllers
         {
             return await Service.AuditGoodsInfo(goodsInfo.goodsInfo);
         }
-
+        [HttpGet]
+        public async Task<ReturnResult<GoodsModel>> GetGoodsInfo(string id)
+        {
+            return await Service.GetGoodsInfo(id);
+        }
     }
 
     public class GoodsApiModel

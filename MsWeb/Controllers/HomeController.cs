@@ -28,11 +28,15 @@ namespace MsWeb.Controllers
             
             return View();
         }
-
-        public ActionResult AboutUs()
+        public ActionResult AboutCompany()
         {
             ViewBag.Title = "MSKJ-关于我们";
             return View("~/Views/Home/Aboutus.cshtml");
+        }
+        public ActionResult AboutUs()
+        {
+            ViewBag.Title = "MSKJ-关于我们";
+            return View("~/Views/SharePing/AboutSharePing.cshtml");
         }
         public ActionResult UpdateLog()
         {
@@ -43,6 +47,12 @@ namespace MsWeb.Controllers
         {
             ViewBag.Title = "MSKJ-产品中心";
             return View("~/Views/Home/ProductCenter.cshtml");
+        }
+
+        public ActionResult GoodsIndex()
+        {
+            ViewBag.Title = "闪荐-APP下载";
+            return View("~/Views/SharePing/SjDownload.cshtml");
         }
     }
 }

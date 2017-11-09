@@ -34,7 +34,7 @@ namespace MsWeb.Controllers
         }
         public ActionResult AboutSharePing()
         {
-            ViewBag.Title = "闪荐-上传分享商品";
+            ViewBag.Title = "闪荐-关于闪荐";
             return View("~/Views/SharePing/AboutSharePing.cshtml");
         }
 
