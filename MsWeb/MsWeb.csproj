@@ -353,14 +353,12 @@
     <Content Include="Views\ProductService\Index.cshtml" />
     <Content Include="Views\ProductService\Training.cshtml" />
     <Content Include="Views\ProductService\Software.cshtml" />
-    <Content Include="Views\ProductService\AndroidApp.cshtml" />
-    <Content Include="Views\ProductService\WebSiteSEO.cshtml" />
-    <Content Include="Views\ProductService\WebSite.cshtml" />
     <Content Include="Views\ProductService\Hardware.cshtml" />
     <Content Include="Views\WechatManage\Index.cshtml" />
     <Content Include="Views\Shared\_WechatManageLayout.cshtml" />
     <Content Include="Views\WechatManage\LoginAuthorise.cshtml" />
     <Content Include="Views\IntegralPlatform\Index.cshtml" />
+    <Content Include="Views\Shared\_IntegralPlatformLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">

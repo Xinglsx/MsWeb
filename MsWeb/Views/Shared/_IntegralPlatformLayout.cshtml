@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="闪荐，以闪电的速度将优惠券推送给大家！提供大量高额限时免费优惠券。我们的口号:寻找更便宜的好东西！Cheaper，Better And Faster" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <link href="~/Content/style.css" type="text/css" rel="stylesheet"/>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        html{height:100%;}
+        body{min-height:95%;margin:0;padding:0;position:relative;}
+        header{background-color: #ffe4c4;}
+        main{padding-top:60px; padding-bottom:50px}
+        footer{position:absolute;bottom:0;width:100%;height:50px;}
+        p.foot{text-align:center; height:10px; font-size:12px;} 
+        .menulevel2-ul{ margin: -5px -15px; }
+        .menulevel2-ul li a { padding-top: 5px; padding-bottom: 5px; line-height: 20px;}
+    </style>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</head>
+<body>
+    <main>
+        <div class="wechatButton">
+            <img src="~/images/wechat/mskjvip888_258.jpg"/>
+        </div>
+        <div class="wechatNumber sidenav">
+            <img src="~/images/wechat/mskjvip888_258.jpg" />
+            <p>扫码关注微信公众号<a class="hideWechatNumber">关闭</a></p>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+             function staticNav() {
+              var sidenavHeight = $(".sidenav").height();
+              var winHeight = $(window).height();
+              var browserIE6 = (navigator.userAgent.indexOf("MSIE 6")>=0) ? true : false;
+              if (browserIE6) {
+               $(".sidenav").css({'position' : 'absolute'});
+              } else {
+               $(".sidenav").css({'position' : 'fixed'});
+              }
+             }
+             staticNav();
+             $(window).resize(function () {
+              staticNav();
+             });
+            });
+        </script>
+
+
+        <script type="text/javascript">
+            $('.wechatButton').on('click', function () {
+                $('.wechatNumber').show();
+            })
+            $('.wechatNumber').on('click', function () {
+                $('.wechatNumber').hide();
+            })
+            $('.hideWechatNumber').on('click', function () {
+                $('.wechatNumber').hide();
+            })
+        </script>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000080;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a href="/Home/Index">
+                        <img src="~/images/Base/mskj_image_icon.png" class="navbar-brand"
+                             style="float:left;height:50px;padding:10px 10px;line-height:40px;width:100px;" />
+                    </a>*@
+                    @Html.ActionLink("积分管理平台", "Index", "IntegralPlatform", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav menulevel2">
+                        <li>@Html.ActionLink("首页", "Index", "IntegralPlatform", new { area = "" }, null)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="status-login-register">
+                &nbsp;&nbsp;&nbsp;&nbsp;<a href="/WechatManage/LoginAuthorise">登陆</a>
+            </div>
+            @RenderBody()
+        </div>
+        <script type="text/javascript">
+            function userExit() {
+                localStorage.userid = "";
+                document.write(localStorage.userid);
+                setCookie("isLogin", false, 10, '/');
+                location.href = "/WechatManage";
+            }
+
+            var isLogin = getCookie('isLogin');
+            if (isLogin == "true") {
+                $(".status-login-register").html("<p>&nbsp;&nbsp;<a href=''>" + localStorage.username + "</a>，欢迎您！  <a onclick='userExit()' href='#'>退出</a></p>");
+            }
+        </script>
+    </main>
+    <footer>
+        <hr />
+        <p class="foot">
+            友情链接：
+            <a href="http://www.mingshukeji.com.cn/Home">MSKJ</a>&nbsp;&nbsp;
+            <a href="http://www.baidu.com">百度</a>&nbsp;&nbsp;
+            <a href="http://www.mingshukeji.com.cn:81">MS博客</a>&nbsp;&nbsp;
+            <a href="https://s.click.taobao.com/t?e=m%3D2%26s%3DcbSc72dVoIgcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAptAI%2B2VcbmHHHfTsOG6BL5%2FnnwDmmNqHK%2FD67FE%2B0F3%2Bw%2FcV9ExfYJ2mzPzKXazMBmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy8CZuZoOOkzXFxfvOyje0ynomfkDJRs%2BhU%3D">阿里云</a>&nbsp;&nbsp;
+        </p>
+        <p class="foot">&nbsp;&nbsp;&nbsp;&nbsp;Copyright &copy; @DateTime.Now.Year- Mingshukeji.com.cn&nbsp;&nbsp;皖ICP备17020567号
+        </p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
