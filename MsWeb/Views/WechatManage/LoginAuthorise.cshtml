@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_SharePingLayout.cshtml";
+    Layout = "~/Views/Shared/_WechatManageLayout.cshtml";
 }
 
 
@@ -23,14 +23,38 @@
             <div class="code" id="checkCode" onclick="createCode()"></div>
             <a href="#" onclick="createCode()" style="margin-top:10px;">点击刷新</a>            
         </div>
-        <button type="submit" class="btn btn-default btn-login" style="width:100px;" onclick="return login()">登陆</button>
+        <button type="submit" class="btn btn-default btn-login" style="width:100px;" onclick="return login()">授权绑定</button>
         <button type="button" class="btn btn-default btn-reset pull-right" style="width:100px;">重置</button>
     </form>
 </div>
 <script type="text/javascript">
-    var isLogin = getCookie('isLogin');
-    if (isLogin == "true") {
-        location.href = "/SharePing";
+    //获取URL中的参数值
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    //绑定openid与用户信息的关系
+    var wechatState = GetQueryString("state")
+    var wechatCode = GetQueryString("code");
+    if (wechatState == "success") {
+        $.ajax({
+            url: "/NewContactWechat/GetAuthoriseState?wechatCode=" + wechatCode,
+            type: "get",
+            
+            success: function (rst) {
+                if (rst.code) {
+                    alert(rst.message);
+                    //无需再进行绑定,跳转个人中心界面.
+                } else {
+                    alert(rst.message);
+                    //未绑定，留在此页进行绑定
+                }
+            }
+        });
+    }
+    else {
+        alert("授权页面申请失败！");
     }
     var code;
     createCode();
@@ -65,8 +89,36 @@
                         localStorage.usercode = rst.data.userid;
                         localStorage.username = rst.data.nickname;
                         document.write(localStorage.userid);
+
+                        //绑定openid与用户信息的关系
+                        var wechatState = GetQueryString("state")
+                        if (wechatState == "success") {
+                            var wechatCode = GetQueryString("code");
+                            var wechatData = {
+                                wechatCode:wechatCode,
+                                userCode: rst.data.ID
+                            }
+                            $.ajax({
+                                url: "/NewContactWechat/AuthoriseUserOpenId",
+                                type: "post",
+                                data: wechatData,
+                                success: function (rst) {
+                                    if (rst == "success") {
+                                        alert("绑定成功");
+                                    }
+                                    else {
+                                        alert("绑定失败");
+                                    }
+                                }
+                            });
+                        }
+                        else{
+                            alert("绑定失败");
+                        }
+
                         setCookie("isLogin", true, 10, '/');
-                        location.href = "/SharePing";
+                        //跳转个人中心界面
+                        //location.href = "/WechatManage";
                     } else {
                         alert(rst.message);
                         createCode();

@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_WechatManageLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <script type="text/javascript" src="~/Scripts/qrcode.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .body-center {
+            text-align: center;
+        }
+
+        #div_center {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-center">
+        <h3>微信管理平台</h3>
+        <a href="#" onclick="SendMessage()">发送消息</a>
+    </div>
+    <script type="text/javascript">
+        function SendMessage() {
+            //给用户发送测试消息
+            $.getJSON("/NewContactWechat/GetSendMessage");                                         
+        }
+    </script>
+</body> 
+</html>

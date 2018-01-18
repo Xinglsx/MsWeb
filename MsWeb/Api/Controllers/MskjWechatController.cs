@@ -14,7 +14,7 @@ using System.Xml;
 
 namespace MsWeb.Api.Controllers
 {
-    public class WechatController : Controller
+    public class MskjWechatController : Controller
     {
         [HttpGet]
         public void Get(string signature, string timestamp, string nonce, string echostr)
@@ -46,6 +46,12 @@ namespace MsWeb.Api.Controllers
             byte[] b = new byte[s.Length];
             s.Read(b, 0, (int)s.Length);
             return Encoding.UTF8.GetString(b);
+        }
+
+        [HttpGet]
+        public string CreateMenu()
+        {
+            return MskjMenuUtil.CreateMenu();
         }
     }
 

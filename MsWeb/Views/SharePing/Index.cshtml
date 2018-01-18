@@ -68,7 +68,7 @@
             }
 
             function getRecommandGoods(curPageNo) {
-                $.getJSON("http://www.mingshukeji.com.cn/api/RecommandGoods/GetRecommandGoodsList?curPage=" + curPageNo + "&pageSize=20&type=2&filter=").success(function (data) {
+                $.getJSON("/api/RecommandGoods/GetRecommandGoodsList?curPage=" + curPageNo + "&pageSize=20&type=2&filter=").success(function (data) {
                     $(".main").html("");
                     $.each(data.data.DataList, function (i, item) {
                         $(".main").append("<div class='col-md-3 parentDiv'>"

@@ -98,6 +98,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\MyWeb\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.18.7.24741, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.8.11.25499, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MsWeb\bin\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -231,7 +239,8 @@
     <Compile Include="Api\Controllers\TbkController.cs" />
     <Compile Include="Api\Controllers\UsersController.cs" />
     <Compile Include="Api\Controllers\VersionController.cs" />
-    <Compile Include="Api\Controllers\WechatController.cs" />
+    <Compile Include="Api\Controllers\NewContactWechatController.cs" />
+    <Compile Include="Api\Controllers\MskjWechatController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -241,8 +250,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Api\Controllers\RecommandGoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IntegralPlatformController.cs" />
     <Compile Include="Controllers\ProductServiceController.cs" />
     <Compile Include="Controllers\SharePageController.cs" />
+    <Compile Include="Controllers\WechatManageController.cs" />
     <Compile Include="Controllers\SharePingController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -346,6 +357,10 @@
     <Content Include="Views\ProductService\WebSiteSEO.cshtml" />
     <Content Include="Views\ProductService\WebSite.cshtml" />
     <Content Include="Views\ProductService\Hardware.cshtml" />
+    <Content Include="Views\WechatManage\Index.cshtml" />
+    <Content Include="Views\Shared\_WechatManageLayout.cshtml" />
+    <Content Include="Views\WechatManage\LoginAuthorise.cshtml" />
+    <Content Include="Views\IntegralPlatform\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">

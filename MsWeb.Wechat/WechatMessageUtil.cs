@@ -209,7 +209,7 @@ namespace MsWeb.Wechat
         public static string GetEventSubscribeResponseMessage(WechatXMLModel msgModel,bool isQrcode)
         {
             //首次关注提醒的消息
-            string subscribeMessage = "感谢您关注合肥MSKJ。科技引领未来，应用改变现在！目前我们提供的服务主要有："
+            string subscribeMessage = "感谢您关注合肥MSKJ。科技引领未来，应用改变世界！目前我们提供的服务主要有："
                         + "\n1、计算机软件开发"
                         + "\n2、安卓手机APP开发"
                         + "\n3、公司宣传主页开发"
