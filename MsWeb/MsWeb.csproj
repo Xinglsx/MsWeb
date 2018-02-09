@@ -249,6 +249,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Api\Controllers\RecommandGoodsController.cs" />
+    <Compile Include="Controllers\H5GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntegralPlatformController.cs" />
     <Compile Include="Controllers\ProductServiceController.cs" />
@@ -359,6 +360,8 @@
     <Content Include="Views\WechatManage\LoginAuthorise.cshtml" />
     <Content Include="Views\IntegralPlatform\Index.cshtml" />
     <Content Include="Views\Shared\_IntegralPlatformLayout.cshtml" />
+    <Content Include="Views\Shared\_H5GameLayout.cshtml" />
+    <Content Include="Views\H5Game\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MsWeb.BaiduAI\MsWeb.BaiduAI.csproj">
