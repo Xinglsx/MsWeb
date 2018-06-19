@@ -1,20 +1,8 @@
-﻿using Mingshu.Framework.MSWeb.Core.AspectX;
-using Mingshu.Framework.MSWeb.EFRepository;
-using MsWeb.Core.Utils;
-using MsWeb.DataObjects;
-using MsWeb.DataObjects.Model;
-using MsWeb.Domains;
-using MsWeb.IServices;
-using MsWeb.Services;
+﻿using MsWeb.Core.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Senparc.Weixin.MP.Containers;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MsWeb.Wechat
 {
@@ -76,19 +64,23 @@ namespace MsWeb.Wechat
                 //需要传入
                 if (string.IsNullOrEmpty(openid))
                 {
-                    openid = "ogXxw0pg9-c8zvMgbhDMjkIXNFUw";
+                    openid = "ogXxw0uil2siqIvGLne_ATt0SufI";
                 }
                 if (string.IsNullOrEmpty(template_id))
                 {
-                    template_id = "PwSL3zRR1BvqeV74VCHVeRrKr_VVqpHoVtMsetUB65c";
+                    //template_id = "PwSL3zRR1BvqeV74VCHVeRrKr_VVqpHoVtMsetUB65c";
+                    //template_id = "YP1LIRbJaKHoIDffsQXrYLTSjLouD3IHgXVJ5SK-sOM";
+                    template_id = "X8SSQnupBSVaz5Lruw0Iq813Sj9NsKdDtZRpYB2MVbc";
                 }
                 if (string.IsNullOrEmpty(targetUrl))
                 {
                     targetUrl = "http://www.baidu.com";
                 }
-                data = "{\"User\": {\"value\":\"代先生\",\"color\": \"#173177\"},"
-                + "\"Date\":{\"value\":\"06月07日 19时24分\",\"color\": \"#173177\"},"
-                + "\"Goods\":{\"value\":\"手术刀\",\"color\":\"#173177\"}}";
+                data = "{\"User\": {\"value\":\"匠心立榜首\",\"color\": \"#173177\"},"
+                    + "\"Goods\":{\"value\":\"【天堂雨伞】\",\"color\": \"#FF0000\"},"
+                    + "\"Date\":{\"value\":\"2018年4月20日上午10：00\",\"color\": \"#173177\"},"
+                    + "\"Instructions\":{\"value\":\"点击可查看详情！\",\"color\": \"#173177\"},"
+                    + "\"Prize\":{\"value\":\"苹果笔记本电脑，Iphone X\",\"color\":\"#FF0000\"}}";
                 LogUtil.WebLog("data:" + data);
                 LogUtil.WebLog(string.Format("\"touser\":\"{0}\",", openid));
                 string postData ="{" + string.Format("\"touser\":\"{0}\",", openid)

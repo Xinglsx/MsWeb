@@ -34,19 +34,19 @@
   <ItemGroup>
     <Reference Include="Mingshu.Framework.MSWeb.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Core.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Core.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.DataAccess.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.EFRepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.EFRepository.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.EFRepository.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Services.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Services.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

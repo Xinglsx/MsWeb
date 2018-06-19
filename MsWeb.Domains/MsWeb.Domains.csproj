@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="Mingshu.Framework.MSWeb.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Core.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

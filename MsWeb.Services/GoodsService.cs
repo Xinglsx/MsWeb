@@ -99,6 +99,7 @@ namespace MsWeb.Services
 
         public async Task<ReturnResult<bool>> SaveGoodsInfo(GoodsModel goodsInfo)
         {
+            LogUtil.WebLog("进入SaveGoodsInfo");
             return await Aspect.Task(async () =>
             {
                 ReturnResult<bool> result = new ReturnResult<bool>();
@@ -106,8 +107,17 @@ namespace MsWeb.Services
                 if (string.IsNullOrEmpty(goodsInfo.ID))
                 {
                     goodsInfo.ID = Guid.NewGuid().ToString();
-                    goodsInfo.image = ImageUtil.StrToUri(goodsInfo.image, goodsInfo.ID + ".jpg");
-                    goodsInfo.buyimage = ImageUtil.StrToUri(goodsInfo.buyimage, goodsInfo.ID + "_buy.jpg");
+                    try
+                    {
+                        goodsInfo.image = ImageUtil.StrToUri(goodsInfo.image, goodsInfo.ID + ".jpg");
+                        goodsInfo.buyimage = ImageUtil.StrToUri(goodsInfo.buyimage, goodsInfo.ID + "_buy.jpg");
+                    }
+                    catch (Exception exp)
+                    {
+                        LogUtil.WebError(exp);
+                        //可以增加默认图片的加载
+                    }
+                    
                     goodsInfo.recommendtime = DateTime.Now;
                     if(goodsInfo.state == 2)
                     {
@@ -192,7 +202,7 @@ namespace MsWeb.Services
                 if (goods == null || string.IsNullOrEmpty(goods.ID))
                 {
                     result.code = -105;
-                    result.message = "打到不指定商品。";
+                    result.message = "找不到指定商品。";
                     return result;
                 }
                 result.code = 1;

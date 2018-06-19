@@ -1,23 +1,6 @@
-﻿using Mingshu.Framework.MSWeb.Core.AspectX;
-using Mingshu.Framework.MSWeb.EFRepository;
-using MsWeb.Core.Utils;
-using MsWeb.DataObjects;
-using MsWeb.DataObjects.Model;
-using MsWeb.Domains;
-using MsWeb.IServices;
-using MsWeb.Services;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Senparc.Weixin.MP;
-using Senparc.Weixin.MP.CommonAPIs;
+﻿using Senparc.Weixin.MP.CommonAPIs;
 using Senparc.Weixin.MP.Containers;
 using Senparc.Weixin.MP.Entities.Menu;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MsWeb.Wechat
 {
@@ -30,41 +13,67 @@ namespace MsWeb.Wechat
         {
             var accessToken = AccessTokenContainer.TryGetAccessToken(appid, secret);
             ButtonGroup bg = new ButtonGroup();
-            //单击
-            bg.button.Add(new SingleClickButton()
-            {
-                name = "单击测试",
-                key = "OneClick",
-                type = ButtonType.click.ToString(),//默认已经设为此类型，这里只作为演示
-            });
-
+            ////单击
+            //bg.button.Add(new SingleClickButton()
+            //{
+            //    name = "单击测试",
+            //    key = "OneClick",
+            //    type = ButtonType.click.ToString(),//默认已经设为此类型，这里只作为演示
+            //});
+            //bg.button.Add(new SingleViewButton()
+            //{
+            //    url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8773baee612e9144&redirect_uri=http%3a%2f%2fwww.mingshukeji.com.cn%2fwechat%2fh5%2f%23%2fanswer&response_type=code&scope=snsapi_userinfo&state=success#wechat_redirect",
+            //    name = "有奖问题"
+            //});
             //二级菜单
             var subButton = new SubButton()
             {
-                name = "二级菜单"
+                name = "公司介绍"
             };
-            subButton.sub_button.Add(new SingleClickButton()
+            subButton.sub_button.Add(new SingleViewButton()
             {
-                key = "SubClickRoot_Text",
-                name = "返回文本"
-            });
-            subButton.sub_button.Add(new SingleClickButton()
-            {
-                key = "SubClickRoot_News",
-                name = "返回图文"
-            });
-            subButton.sub_button.Add(new SingleClickButton()
-            {
-                key = "SubClickRoot_Music",
-                name = "返回音乐"
+                url = "https://www.baidu.com/",
+                name = "联系我们"
             });
             subButton.sub_button.Add(new SingleViewButton()
             {
-                url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8773baee612e9144&redirect_uri=http%3a%2f%2fwww.mingshukeji.com.cn%2fWechatManage%2fLoginAuthorise&response_type=code&scope=snsapi_userinfo&state=success#wechat_redirect",
-                name = "我的账号"
+                url = "https://www.baidu.com/",
+                name = "关于快享"
             });
             bg.button.Add(subButton);
 
+            var subButton1 = new SubButton()
+            {
+                name = "方案介绍"
+            };
+            subButton1.sub_button.Add(new SingleViewButton()
+            {
+                url = "https://www.baidu.com/",
+                name = "Q&A"
+            });
+            subButton1.sub_button.Add(new SingleViewButton()
+            {
+                url = "https://www.baidu.com/",
+                name = "案例分享"
+            });
+            subButton1.sub_button.Add(new SingleViewButton()
+            {
+                url = "https://www.baidu.com/",
+                name = "院内物流中心"
+            });
+            subButton1.sub_button.Add(new SingleViewButton()
+            {
+                url = "https://www.baidu.com/",
+                name = "物资云"
+            });
+            bg.button.Add(subButton1);
+
+            bg.button.Add(new SingleViewButton()
+            {
+                //url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8773baee612e9144&redirect_uri=http%3a%2f%2fwww.mingshukeji.com.cn%2fWechatManage%2fLoginAuthorise&response_type=code&scope=snsapi_userinfo&state=success#wechat_redirect",
+                url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8773baee612e9144&redirect_uri=http%3a%2f%2fwww.mingshukeji.com.cn%2fQuickShareWechat%2fh5%2f%23%2fregister&response_type=code&scope=snsapi_userinfo&state=success#wechat_redirect",
+                name = "有奖问答"
+            });
             var result = CommonApi.CreateMenu(accessToken, bg);
             return "菜单创建成功";
         }

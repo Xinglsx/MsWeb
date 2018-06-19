@@ -11,6 +11,7 @@ using Top.Api.Request;
 using Top.Api.Response;
 using Mingshu.Framework.MSWeb.Core.Paging;
 using Mingshu.Framework.MSWeb.Web.WebApi;
+using MsWeb.Core.Utils;
 
 namespace MsWeb.Api.Controllers
 {
@@ -69,10 +70,22 @@ namespace MsWeb.Api.Controllers
         {
             return await Service.GetGoodsInfo(id);
         }
+        [HttpPost]
+        public ReturnResult<GoodsModel> AnalysisTbkStr(TbkStr tbkStr)
+        {
+            ReturnResult<GoodsModel> result = new ReturnResult<GoodsModel>();
+            result.code = 1;
+            result.data = TaobaoUtil.AnalysisTbkStr(tbkStr.tbkStr);
+            return result;
+        }
     }
 
     public class GoodsApiModel
     {
         public GoodsModel goodsInfo { get; set; }
+    }
+    public class TbkStr
+    {
+        public string tbkStr { get; set; }
     }
 }

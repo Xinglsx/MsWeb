@@ -32,7 +32,7 @@ namespace MsWeb.Wechat.CustomMessageHandler
     {
         private string GetWelcomeInfo()
         {
-            return string.Format("Senparc框架欢迎您！");
+            return string.Format("感谢您关注快享医疗！请先点击下方的个人中心，使用手机号进行注册。注册成功后，即可参与有奖问题。全部答对后，将获取一份精美小礼物，并获得一次现场抽奖机会。苹果IPAD、科大讯飞智能语音助手等你来拿！快去注册吧！");
         }
 
         //public string GetDownloadInfo(CodeRecord codeRecord)

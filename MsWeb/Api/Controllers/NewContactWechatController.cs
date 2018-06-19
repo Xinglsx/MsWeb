@@ -5,18 +5,12 @@ using MsWeb.Wechat.CustomMessageHandler;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Senparc.Weixin.MP;
+using Senparc.Weixin.MP.Containers;
 using Senparc.Weixin.MP.Entities.Request;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Xml;
 
 namespace MsWeb.Api.Controllers
 {
@@ -137,6 +131,12 @@ namespace MsWeb.Api.Controllers
             //}
             string openId = jo["openid"].ToString();
             LogUtil.WebLog("openid：" + openId);
+            string access_token = jo["access_token"].ToString();
+            LogUtil.WebLog("access_token：" + access_token);
+            string refresh_token = jo["refresh_token"].ToString();
+            LogUtil.WebLog("refresh_token：" + refresh_token);
+            string TryGetAccessToken = AccessTokenContainer.TryGetAccessToken(sAppID, sEncodingAESKey);
+            LogUtil.WebLog("TryGetAccessToken：" + TryGetAccessToken);
             //string refresh_token = jo["refresh_token"].ToString();
             //string access_token = jo["access_token"].ToString();
             /*通过业务接口判断openid是否已绑定用户；如果已经绑定，返回用户信息，无需用户再登录；
@@ -160,6 +160,27 @@ namespace MsWeb.Api.Controllers
                 };
                 result.message = "该用户已经绑定！openid为："+ openId;
             }
+            string urlUserinfo = string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN",
+                TryGetAccessToken, openId);
+            string jsonResultUserinfo = WechatHttpClientUtil.dooGet(urlUserinfo);
+            JObject joUserinfo = (JObject)JsonConvert.DeserializeObject(jsonResultUserinfo);
+            //{
+            //    "subscribe": 1, 
+            //    "openid": "o6_bmjrPTlm6_2sgVt7hMZOPfL2M", 
+            //    "nickname": "Band", 
+            //    "sex": 1, 
+            //    "language": "zh_CN", 
+            //    "city": "广州", 
+            //    "province": "广东", 
+            //    "country": "中国", 
+            //    "headimgurl":"http://thirdwx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0",
+            //    "subscribe_time": 1382694957,
+            //    "unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"
+            //    "remark": "",
+            //    "groupid": 0,
+            //    "tagid_list":[128,2]
+            //}
+            LogUtil.WebLog("获取到的用户信息为："+joUserinfo.ToString());
             LogUtil.WebLog("方法调用成功！"+result.message);
             return  this.Json(result,JsonRequestBehavior.AllowGet);
         }

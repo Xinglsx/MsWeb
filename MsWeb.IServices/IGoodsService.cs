@@ -17,15 +17,15 @@ namespace MsWeb.IServices
 
         Task<ReturnResult<bool>> ClickCounIncrement(string id);
         /// <summary>
-        /// 更新用户信息
+        /// 保存商品信息
         /// </summary>
-        /// <param name="userInfo">待更新用户信息</param>
+        /// <param name="goodsInfo">商品信息</param>
         /// <returns></returns>
         Task<ReturnResult<bool>> SaveGoodsInfo(GoodsModel goodsInfo);
         /// <summary>
-        /// 更新用户信息
+        /// 审核商品信息
         /// </summary>
-        /// <param name="userInfo">待更新用户信息</param>
+        /// <param name="goodsInfo">商品信息</param>
         /// <returns></returns>
         Task<ReturnResult<bool>> AuditGoodsInfo(GoodsModel goodsInfo);
         /// <summary>

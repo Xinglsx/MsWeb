@@ -37,23 +37,23 @@
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Common.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Common.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Core.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Core.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.EFRepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.EFRepository.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.EFRepository.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.Events, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Events.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Events.dll</HintPath>
     </Reference>
     <Reference Include="Mingshu.Framework.MSWeb.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MsWeb\bin\Mingshu.Framework.MSWeb.Services.dll</HintPath>
+      <HintPath>..\libs\Mingshu.Framework.MSWeb.Services.dll</HintPath>
     </Reference>
     <Reference Include="MsWeb.Core.Fakes">
       <HintPath>FakesAssemblies\MsWeb.Core.Fakes.dll</HintPath>
@@ -67,8 +67,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TinyMapper">
-      <HintPath>..\..\..\SCM\框架代码\Winning.Framework.DMSP\Out\TinyMapper.dll</HintPath>
+    <Reference Include="TinyMapper, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\TinyMapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
