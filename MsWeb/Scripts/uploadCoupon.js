@@ -8,16 +8,31 @@ function analysisShareText() {
             $('#inputGoodsDescription').val(content.substring(startIndex, endIndex));
         }
 
-        startIndex = content.indexOf("【在售价】") + 5;
-        endIndex = content.indexOf("【券后价】") - 2;
-        if(startIndex  >= 0 && endIndex > startIndex) {
-            $('#inputPrice').val("￥" + content.substring(startIndex, endIndex));
-        }
+        if (content.indexOf("【券后价】") > 0) {
+            startIndex = content.indexOf("【在售价】") + 5;
+            endIndex = content.indexOf("【券后价】") - 2;
+            if (startIndex >= 0 && endIndex > startIndex) {
+                $('#inputPrice').val("￥" + content.substring(startIndex, endIndex));
+            }
 
-        startIndex = content.indexOf("【券后价】") + 5;
-        endIndex = content.indexOf("【下单链接】") - 2;
-        if(startIndex  >= 0 && endIndex > startIndex) {
-            $('#inputCouponPrice').val("￥" + content.substring(startIndex, endIndex));
+            startIndex = content.indexOf("【券后价】") + 5;
+            endIndex = content.indexOf("【下单链接】") - 2;
+            if (startIndex >= 0 && endIndex > startIndex) {
+                $('#inputCouponPrice').val("￥" + content.substring(startIndex, endIndex));
+            }
+        }
+        else if (content.indexOf("【拼团价】") > 0) {
+            startIndex = content.indexOf("【在售价】") + 5;
+            endIndex = content.indexOf("【拼团价】") - 2;
+            if (startIndex >= 0 && endIndex > startIndex) {
+                $('#inputPrice').val("￥" + content.substring(startIndex, endIndex));
+            }
+
+            startIndex = content.indexOf("【拼团价】") + 5;
+            endIndex = content.indexOf("【下单链接】") - 2;
+            if (startIndex >= 0 && endIndex > startIndex) {
+                $('#inputCouponPrice').val("￥" + content.substring(startIndex, endIndex));
+            }
         }
 
         startIndex = content.indexOf("【下单链接】") + 6;
@@ -26,8 +41,8 @@ function analysisShareText() {
             $('#inputCouponLink').val(content.substring(startIndex, endIndex));
         }
 
-        startIndex = content.indexOf("复制这条信息") + 7;
-        endIndex = content.indexOf("打开【手机淘宝】") - 2;
+        startIndex = content.indexOf("復·制这段描述") + 8;
+        endIndex = content.indexOf("咑閞【手机淘宝】") - 2;
         if(startIndex  >= 0 && endIndex >0 && endIndex > startIndex) {
             $('#inputZkl').val(content.substring(startIndex, endIndex));
         }
@@ -36,37 +51,62 @@ function analysisShareText() {
 }
 //保存草稿功能实现
 function saveRecommandGoods() {
-    var imageBase64 = $("#showImage")[0].src.toString();
-    imageBase64 = imageBase64.substring(imageBase64.indexOf("base64,")+7, imageBase64.length);
-    var data = {
-        description: $("#inputGoodsDescription").val(),
-        link: $("#inputCouponLink").val(),
-        command: $("#inputZkl").val(),
-        oldprice: $("#inputPrice").val(),
-        price: $("#inputCouponPrice").val(),
-        expirydate: $("#inputExpiryDate").val(),
-        reason: $("#inputRecommendReason").val(),
-        state: $(this).id == "btnSaveDraft" ? 0 : 1,
-        image: imageBase64,
-        recommender:localStorage.userid,
-        recommendname: localStorage.nickname,
+    var checkInputResult = checkInput();
+    if (checkInputResult) {
+        var imageBase64 = $("#showImage")[0].src.toString();
+        imageBase64 = imageBase64.substring(imageBase64.indexOf("base64,") + 7, imageBase64.length);
+        var data = {
+            description: $("#inputGoodsDescription").val(),
+            link: $("#inputCouponLink").val(),
+            command: $("#inputZkl").val(),
+            oldprice: $("#inputPrice").val(),
+            price: $("#inputCouponPrice").val(),
+            expirydate: $("#inputExpiryDate").val(),
+            reason: $("#inputRecommendReason").val(),
+            state: $(this).id == "btnSaveDraft" ? 0 : 1,
+            image: imageBase64,
+            recommender: localStorage.userid,
+            recommendname: localStorage.nickname,
+        }
+
+        $.ajax({
+            url: "/api/RecommandGoods/SaveGoodsInfo",
+            type: "post",
+            data: { goodsInfo: data },
+            success: function (rst) {
+                if (rst.code > 0) {
+                    //写cookie、localStorage
+                    location.href = "/SharePing/UploadCoupon";
+                } else {
+                    alert(rst.message);
+                }
+            }
+        });
+    } else {
+        alert("输入信息不全！");
+        return false;
+    }
+    return false;
+}
+
+function checkInput() {
+    if ($("#inputGoodsDescription").val() == null || $("#inputGoodsDescription").val().length == 0) {
+        return false;
+    }
+    if ($("#inputCouponLink").val() == null || $("#inputCouponLink").val().length == 0) {
+        return false;
+    }
+    if ($("#inputZkl").val() == null || $("#inputZkl").val().length == 0) {
+        return false;
+    }
+    if ($("#inputPrice").val() == null || $("#inputPrice").val().length == 0) {
+        return false;
+    }
+    if ($("#showImage")[0].src.toString().length == 0) {
+        return false;
     }
 
-    $.ajax({
-        url: "/api/RecommandGoods/SaveGoodsInfo",
-        type: "post",
-        data: {goodsInfo:data},
-        success: function (rst) {
-            if (rst.code > 0) {
-                //写cookie、localStorage
-                location.href = "/Home";
-            } else {
-                alert(rst.message);
-            }
-        }
-    });
-
-    return false;
+    return true;
 }
 
 function imgChange(e) {
