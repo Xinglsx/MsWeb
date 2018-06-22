@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width，initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="description" content="福利闪达！各种优惠福利闪达到您口袋！提供衣食住行各种优惠福利攻略,让您不错过一个优质的活动。" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -26,23 +26,31 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
+
 </head>
-<body>
-    <main>
-        <div class="container" style="max-width:1024px;margin-top:0px;margin-left:0px;margin-right:0px">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="text-center"><font color="red">衣食住行</font></h2>
-                </div>
-                <div class="col-md-4"
-                    <h2 class="text-center"><font color="red">长期有效</font></h2>
-                </div>
-                <div class="col-md-4">
-                    <h2 class="text-center"><font color="red">应用推荐</font></h2>
+<body style="padding-top: 0px; padding-left:0px;padding-bottom:0px">
+    @*<main>
+        <div class="container-fluid" style="max-width:640px;min-width:320px;min-height:640px;text-align:center;background-image:url('http://www.mingshukeji.com.cn/images/welfareflash/background_home.jpeg')">
+            <div>
+                <div class="row">
+                    <div class="col-xs-4" style="background-color:aquamarine;">
+                        <button style="background-color:aquamarine;border:hidden;"><h6 class="text-center"><font color="red">菜单1</font></h6></button>
+                    </div>
+                    <div class="col-xs-4" style="background-color:burlywood;">
+                        <button><h6 class="text-center"><font color="red">菜单2</font></h6></button>
+                    </div>
+                    <div class="col-xs-4" style="background-color:aquamarine;">
+                        <button><h6 class="text-center"><font color="red">菜单3</font></h6></button>
+                    </div>
                 </div>
             </div>
+            @RenderBody()
         </div>
-        @RenderBody()
+    </main>*@
+    <main>
+        <div class="container-fluid" style="max-width:640px;min-width:320px;min-height:540px;text-align:center;background-image:url('http://www.mingshukeji.com.cn/images/welfareflash/background_home.jpeg');">
+            @RenderBody()
+        </div>
     </main>
 </body>
 </html>

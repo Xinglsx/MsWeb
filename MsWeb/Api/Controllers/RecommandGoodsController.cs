@@ -50,10 +50,10 @@ namespace MsWeb.Api.Controllers
         {
             return await Service.GetRecommandGoodsList(curPage, pageSize, type, filter);
         }
-        [HttpGet]
-        public Task<ReturnResult<bool>> ClickCounIncrement(string id)
+        [HttpPost]
+        public Task<ReturnResult<bool>> ClickCounIncrement(IdStr id)
         {
-            return Service.ClickCounIncrement(id);
+            return Service.ClickCounIncrement(id.id);
         }
         [HttpPost]
         public async Task<ReturnResult<bool>> SaveGoodsInfo(GoodsApiModel goodsInfo)
@@ -87,5 +87,9 @@ namespace MsWeb.Api.Controllers
     public class TbkStr
     {
         public string tbkStr { get; set; }
+    }
+    public class IdStr
+    {
+        public string id { get; set; }
     }
 }

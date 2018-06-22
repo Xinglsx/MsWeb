@@ -46,14 +46,14 @@ namespace MsWeb.Core.Utils
                         endIndex = tbkStr.IndexOf("【券后价】") - 2;
                         if (startIndex >= 0 && endIndex > startIndex)
                         {
-                            LogUtil.WebLog(string.Format("oldprice:{0}", goods.oldprice));
+                            goods.oldprice = "￥" + tbkStr.Substring(startIndex, endIndex - startIndex);
                         }
 
                         startIndex = tbkStr.IndexOf("【券后价】") + 5;
                         endIndex = tbkStr.IndexOf("【下单链接】") - 2;
                         if (startIndex >= 0 && endIndex > startIndex)
                         {
-                            LogUtil.WebLog(string.Format("price:{0}", goods.price));
+                            goods.price = "￥" + tbkStr.Substring(startIndex, endIndex - startIndex);
                         }
                     }
                     else if (tbkStr.Contains("【拼团价】"))
