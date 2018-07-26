@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>..\libs\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
+    <Reference Include="aliyun-net-sdk-dysmsapi">
+      <HintPath>..\libs\aliyun-net-sdk-dysmsapi.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libs\Autofac.dll</HintPath>
@@ -258,6 +264,7 @@
   <ItemGroup>
     <Compile Include="Api\Controllers\AdvertisementController.cs" />
     <Compile Include="Api\Controllers\QuestionController.cs" />
+    <Compile Include="Api\Controllers\SmsController.cs" />
     <Compile Include="Api\Controllers\TbkController.cs" />
     <Compile Include="Api\Controllers\UsersController.cs" />
     <Compile Include="Api\Controllers\VersionController.cs" />
@@ -433,6 +440,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\ScriptPatchs\V201709\Goods\" />
+    <Folder Include="Views\Sms\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

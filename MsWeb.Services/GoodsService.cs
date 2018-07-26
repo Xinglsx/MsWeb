@@ -212,5 +212,45 @@ namespace MsWeb.Services
             .WithLog("获取商品列表")
             .Execute();
         }
+
+        /// <summary>
+        /// 获取最近三天内的十条管理员推荐的商品信息
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ReturnResult<PagedData<GoodsModel>>> GetRecentGoodsList()
+        {
+            int curPage = 1;
+            int pageSize = 10;
+
+            //获取三天内的数据
+            DateTime today = DateTime.Now;
+            DateTime startDate = DateTime.Now.AddDays(-3);
+
+            return await Aspect.Task<ReturnResult<PagedData<GoodsModel>>>(async () =>
+            {
+                ReturnResult<PagedData<GoodsModel>> result = new ReturnResult<PagedData<GoodsModel>>();
+
+
+                Expression<Func<Goods, bool>> exp = x => x.recommender == "230feefe-8ff6-46b7-883e-1da120a51139" &&
+                    x.recommendtime >= startDate && x.recommendtime <= today &&
+                    x.state == 2;
+
+                var goods = await this.FindResultWithPagingAsync<GoodsModel, Goods>(repository, curPage, pageSize, exp,
+                    x => new { x.recommendtime }, SortOrder.Descending);
+
+                if (goods == null || goods.DataList == null || goods.DataList.Count == 0)
+                {
+                    result.code = -105;
+                    result.message = "已加载完。";
+                    return result;
+                }
+                result.code = 1;
+                result.data = goods;
+                return result;
+            })
+            .WithLog("获取商品列表")
+            .Execute();
+
+        }
     }
 }

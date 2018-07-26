@@ -34,5 +34,10 @@ namespace MsWeb.IServices
         /// <param name="id">商品主键</param>
         /// <returns></returns>
         Task<ReturnResult<GoodsModel>> GetGoodsInfo(string id);
+        /// <summary>
+        /// 获取最近三天内的十条管理员推荐的商品信息
+        /// </summary>
+        /// <returns></returns>
+        Task<ReturnResult<PagedData<GoodsModel>>> GetRecentGoodsList();
     }
 }

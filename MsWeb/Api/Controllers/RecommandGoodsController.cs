@@ -78,6 +78,11 @@ namespace MsWeb.Api.Controllers
             result.data = TaobaoUtil.AnalysisTbkStr(tbkStr.tbkStr);
             return result;
         }
+        [HttpGet]
+        public async Task<ReturnResult<PagedData<GoodsModel>>> GetRecentGoodsList()
+        {
+            return await Service.GetRecentGoodsList();
+        }
     }
 
     public class GoodsApiModel
