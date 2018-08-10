@@ -285,7 +285,6 @@
   <ItemGroup>
     <Content Include="App_Data\ScriptPatchs\Install\Goods\0001_AdminUser.sql" />
     <Content Include="Configs\CacheConfig.json" />
-    <Content Include="Configs\DbConnection.json" />
     <Content Include="Configs\LoggerConfig.json" />
     <Content Include="Configs\PatchConfig.json" />
     <Content Include="Configs\PluginConfig.json" />
